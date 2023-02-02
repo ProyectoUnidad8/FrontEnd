@@ -4,6 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+
+//CSS
+import './assets/css/bootstrap.css';
+import './assets/css/plugins.css'
+import './assets/fonts/font-awesome/css/font-awesome.min.css'
+import './assets/fonts/flaticons/flaticon.css'
+import './assets/fonts/glyphicons/bootstrap-glyphicons.css'
+import './assets/css/style.css';
+import './assets/css/plugins.css'
+import './index.css';
+import './assets/styles/maincolors.css';
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
