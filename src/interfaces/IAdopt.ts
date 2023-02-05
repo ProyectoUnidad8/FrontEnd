@@ -1,4 +1,5 @@
 export interface IPetAdopt {
+	id: Number;
 	name: String;
 	breed: String;
 	isAdopted: Boolean;

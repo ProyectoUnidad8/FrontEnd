@@ -1,8 +1,9 @@
 import { IPetAdopt } from "../../interfaces/IAdopt";
 import { useState } from 'react';
+import Modal from "../modals/ModalApplicationAdopt";
 
-function PetsAdopt({ name, breed, category, description, gender, urlImage, isAdopted }: IPetAdopt ) {
-	
+function PetsAdopt({ id, name, breed, category, description, gender, urlImage, isAdopted }: IPetAdopt ) {
+	const [isModalOpen, setIsModalOpen] = useState(false);
 
 	return (<>
 				<div className="box_icon" style={{ padding: "20px", width: "100%" }}>
@@ -20,11 +21,11 @@ function PetsAdopt({ name, breed, category, description, gender, urlImage, isAdo
 							<p className="componentInfoPetAdopt"><b className="componentTitlePetAdopt">Estado:</b> {isAdopted ? "Adoptado": "No ha sido adoptado"}</p>	
 							<p className="componentQuestionPetAdopt">¿Deseas que {name} sea parte de tu familia?</p>
 							
-
+							<button className="btn" onClick={() => setIsModalOpen(true)}>Enviar Solicitud</button>
 						</div>
 					</div>
 				</div>
-				
+				<Modal id={String(id)} isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
 			</>
 	)
 }
