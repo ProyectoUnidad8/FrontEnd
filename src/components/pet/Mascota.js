@@ -6,27 +6,31 @@ function Mascota({
     mascota
 }) {
     return (
-        <Fragment>                                        
-                <div className="box_icon">
-                    <div className="icon">
-                        {/* <!-- icon --> */}
-                        <div class="image">
-                            <img src={adopt1} className="img-responsive" alt="" />
-                        </div>
-                        <div className="info">
-                            <h4>{mascota.nombre}</h4>
-                            <p>{mascota.raza}</p>                            
-                            <p>{mascota.descripcion}</p>
-                            <p>{mascota.edad}</p>
-                            {/* <!-- Button--> */}
-                            <Link to="/diagnosticos" className="btn">
+        <Fragment>     
+            <div className="col-md-5">
+                  <img src={adopt1} class="center-block img-rounded img-responsive" alt=""/>
+			  </div>
+               <div className="col-md-7 res-margin">
+                  <h3>{mascota.nombre}</h3>
+				  <div className="pet-adopt-info">
+					  <h6>Gender: female</h6>
+					  <h6>Neutered: Yes</h6>
+					  <h6>Vaccinated: Yes</h6>
+                      <h6>{mascota.edad}</h6>
+                      <h6>{mascota.peso}</h6>
+
+				  </div>
+                  <p>{mascota.descripcion}</p>				 
+                  
+                  <ul className="custom no-margin">
+                     <li>Aliquam erat volut pat.</li>
+                     <li>Ibu lum orci eget, viverra elit liquam erat volut pat phas ellus ac.</li>
+                     <li>Aliquam erat volut pat phas ellu</li>
+                  </ul>
+				  <Link to="/diagnosticos" className="btn">
                                 Ver diagnosticos
                             </Link>
-                        </div>
-                    </div>
-                    {/* <!--/icon --> */}
-                </div>
-                {/* <!-- /box_icon --> */}            
+               </div>                                                           
         </Fragment>
     )
 }

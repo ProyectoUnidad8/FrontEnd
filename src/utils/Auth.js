@@ -1,6 +1,10 @@
 import axios from "axios"
 import { Navigate } from "react-router-dom"
 
+export const Login = async () =>{
+ 
+}
+
 
 export const checkAuthenticated = async () =>{
     if(localStorage.getItem('token')){

@@ -9,6 +9,7 @@ import Login from './containers/auth/Login';
 import MisMascotas from './containers/pages/MisMascotas';
 import About from './containers/About';
 import Error from './containers/errors/Error404';
+import Donate from './containers/pages/Donate';
 
 
 
@@ -21,6 +22,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
         <Route path="/mis_mascotas" element={<MisMascotas />}></Route>
+        <Route path="/donate" element={<Donate />}></Route>
       </Routes>
     </Router>
   );

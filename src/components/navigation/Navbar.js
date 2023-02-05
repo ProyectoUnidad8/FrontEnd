@@ -1,11 +1,13 @@
 import { Fragment, useEffect, useState } from "react";
 import logo from "../../assets/img/logo.png"
-
+import { logOut } from "../../utils/Auth";
 
 
 
 
 function Navbar() {  
+   const [isAuthenticated, setIsAuthenticated] = useState(false)
+   
    return (
       <Fragment>
          <link href="https://fonts.googleapis.com/css?family=Lato:400,800" rel="stylesheet"/>
