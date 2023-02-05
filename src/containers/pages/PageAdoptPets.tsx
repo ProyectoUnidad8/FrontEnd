@@ -1,7 +1,7 @@
 import Layout from "../../hocs/layout";
 import PetsAdopt from "../../components/adoptPet/petAdopt";
 import { useState,useEffect } from "react";
-import allPetsToAdopt from "../../functions/adoptFunction";
+import { allPetsToAdopt } from "../../functions/adoptFunction";
 
 
 const PetsToAdoption = () => {
@@ -20,7 +20,7 @@ const PetsToAdoption = () => {
 							pets != null ? (
 								pets.map(pet => (
 									<div key={pet.id}>
-										<PetsAdopt name={pet.name} breed={pet.breed} isAdopted={pet.isAdopted} description={pet.description} gender={pet.gender} urlImage={pet.url_image}  />
+										<PetsAdopt id={pet.id} name={pet.name} breed={pet.breed} isAdopted={pet.isAdopted} description={pet.description} gender={pet.gender} urlImage={pet.url_image}  />
 									</div>
 								)) 
 							) : ("No hay datos")
