@@ -1,9 +1,6 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment } from "react";
 import logo from "../../assets/img/logo.png"
 import { logOut } from "../../utils/Auth";
-
-
-
 
 function Navbar() {  
    const [isAuthenticated, setIsAuthenticated] = useState(false)
@@ -12,7 +9,7 @@ function Navbar() {
       <Fragment>
          <link href="https://fonts.googleapis.com/css?family=Lato:400,800" rel="stylesheet"/>
          <link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet"/>
-         <nav className="navbar navbar-custom navbar-fixed-top">
+         <nav className="navbar navbar-custom navbar-fixed-top" style={{ zIndex: "10"}}>
             <div className="container">
                {/* <!-- Brand and toggle get grouped for better mobile display --> */}
                <div className="navbar-header">
@@ -20,7 +17,7 @@ function Navbar() {
                      <i className="fa fa-bars"></i>
                   </button>
                   <div className="navbar-brand navbar-brand-centered page-scroll">
-                     <a href="#page-top">
+                     <a href="/">
                         {/* <!-- logo  --> */}
                         <img src={logo} className="img-responsive" alt="" />
                      </a>
@@ -30,9 +27,9 @@ function Navbar() {
                {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
                <div className="collapse navbar-collapse" id="navbar-brand-centered">
                   <ul className="nav navbar-nav">
-                     <li className="active"><a href="/">Home</a></li>
+                     <li><a href="/">Home</a></li>
                      <li><a href="!#">Nosotros</a></li>
-                     
+                     <li><a href="/adopt-pet">¡Adopta!</a></li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">                     
                      <li><a href="/login">Login</a></li>
