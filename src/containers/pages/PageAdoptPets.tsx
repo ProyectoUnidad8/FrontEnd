@@ -19,9 +19,12 @@ const PetsToAdoption = () => {
 						{ 
 							pets != null ? (
 								pets.map(pet => (
-									<div key={pet.id}>
-										<PetsAdopt id={pet.id} name={pet.name} breed={pet.breed} isAdopted={pet.isAdopted} description={pet.description} gender={pet.gender} urlImage={pet.url_image}  />
-									</div>
+									pet.isAdopted ? (""): 
+										(
+										<div key={pet.id}>
+											<PetsAdopt id={pet.id} name={pet.name} breed={pet.breed} isAdopted={pet.isAdopted} description={pet.description} gender={pet.gender} urlImage={pet.url_image}  />
+										</div>
+										)	
 								)) 
 							) : ("No hay datos")
 						}

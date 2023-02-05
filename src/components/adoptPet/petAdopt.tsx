@@ -18,7 +18,7 @@ function PetsAdopt({ id, name, breed, category, description, gender, urlImage, i
 							<p className="componentInfoPetAdopt"><b style={{fontSize:"30px"}}> {description}</b></p>
 							<p className="componentInfoPetAdopt"><b className="componentTitlePetAdopt">Raza:</b> {breed}</p>							
 							<p className="componentInfoPetAdopt"><b className="componentTitlePetAdopt">Género:</b> {gender}</p>
-							<p className="componentInfoPetAdopt"><b className="componentTitlePetAdopt">Estado:</b> {isAdopted ? "Adoptado": "No ha sido adoptado"}</p>	
+							{/* <p className="componentInfoPetAdopt"><b className="componentTitlePetAdopt">Estado:</b> {isAdopted ? true: false}</p>	 */}
 							<p className="componentQuestionPetAdopt">¿Deseas que {name} sea parte de tu familia?</p>
 							
 							<button className="btn" onClick={() => setIsModalOpen(true)}>Enviar Solicitud</button>
