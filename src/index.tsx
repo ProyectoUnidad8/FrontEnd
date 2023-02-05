@@ -16,6 +16,7 @@ import './assets/css/plugins.css'
 import './index.css';
 import './assets/styles/maincolors.css';
 
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
