@@ -27,8 +27,7 @@ const data = [
 const MisMascotas = () =>{
     const showMascota = ()=>{
         return data.map((mascota,index )=> {
-            return (
-            
+            return (            
                 <div key={index} className="col-md-4 col-lg-4">
                     <Mascota mascota={mascota} />
                 </div>
@@ -39,8 +38,8 @@ const MisMascotas = () =>{
 
     return(
         <Layout>
-            <div className="row margin1" > 
-            <div className="margin1"></div>
+            <div className="row margin-1" > 
+            <div className="margin-1"></div>
                 {showMascota()}
             </div>
         </Layout>

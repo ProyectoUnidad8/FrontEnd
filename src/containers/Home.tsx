@@ -84,7 +84,7 @@ const Home = () => {
                         <div className="panel">
                            <div className="panel-heading">
                               <h5 className="panel-title">
-                                 <a className="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Value Added Services</a>
+                                 <a className="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Mision</a>
                               </h5>
                            </div>
                            <div id="collapseThree" className="panel-collapse collapse">
