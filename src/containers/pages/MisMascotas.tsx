@@ -1,6 +1,8 @@
 import Layout from "../../hocs/layout";
 import Mascota from "../../components/pet/Mascota";
+import { useEffect, useState } from "react";
 
+import { getUserPets } from "../../functions/Pets";
 const data = [
     {
         id: 1,
@@ -17,31 +19,66 @@ const data = [
         edad : 3,
     },
     {
-        id: 3,
+        id: 99,
         nombre:"Negrito",    
         raza : "Callejero",
         descripcion:"perrito bonito",
         edad : 2,
     }
 ]
+
+
 const MisMascotas = () =>{
-    const showMascota = ()=>{
-        return data.map((mascota,index )=> {
-            return (            
-                <div key={index} className="col-md-4 col-lg-4">
-                    <Mascota mascota={mascota} />
-                </div>
-                
-            )
-        })
+
+    const [data, setData] = useState([{
+        id: 1,
+        name:"Puchy",    
+        age : 3,
+        breed : "Schauzer",
+        gender:"Male",
+        description:"perrito bonito encontrado y rescatado",
+        url_image:"https://goo.su/XQImvpd"
+        
+    },
+    ])
+
+    useEffect(()=>{
+        showMascota();
+    },[])
+
+    const showMascota = async():Promise<any> =>{
+        const datos_response = await getUserPets(Number(2))
+        if (datos_response.length > 0){            
+            setData(datos_response)
+        }else{
+            console.log(datos_response)
+        }
     }
 
     return(
         <Layout>
-            <div className="row margin-1" > 
-            <div className="margin-1"></div>
-                {showMascota()}
+            <>
+            <div className="row margin-1">             
+                {                    
+                    data &&
+                    data!== null &&
+                    data.map((mascota, index)=>(                        
+                        <div className="row margin-1" key={index}>             
+                            <Mascota
+                                id= {mascota.id}
+                                name= {mascota.name}
+                                age = {mascota.age}
+                                breed= {mascota.breed}
+                                gender= {mascota.gender}
+                                description= {mascota.description}
+                                urlImage={mascota.url_image}
+                            />
+                        </div>
+                    ))
+                }
+                                    
             </div>
+            </>
         </Layout>
     )
 }

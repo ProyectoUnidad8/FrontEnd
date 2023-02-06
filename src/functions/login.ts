@@ -1,6 +1,8 @@
 import { FormEvent } from "react";
 //import { urlUser } from "../utils/urls";
 import { addToken } from "../utils/token";
+import { urlUser } from "../utils/urls";
+import Swal from "sweetalert2";
 
 
 let headers = {
@@ -9,6 +11,21 @@ let headers = {
 
 export const LoginFunction = async (event:FormEvent) => {
 	event.preventDefault();
+	const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 2000,
+        timerProgressBar: true,
+        didOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        },
+        willClose:()=>{            
+            window.location.href="/"
+        }
+      })
+	
 	try{
 
 		const formData = new FormData(event.target as HTMLFormElement);
@@ -25,20 +42,33 @@ export const LoginFunction = async (event:FormEvent) => {
 			datos[key] = value;
 		}
 
-		const response = await fetch("http://localhost:9003/api/v1/user/login/",{ method: "POST",	headers: headers, body: JSON.stringify(datos) } )
+		const response = await fetch(`${urlUser}/login/`,{ method: "POST",	headers: headers, body: JSON.stringify(datos) })
 		const data = await response.json()
-		
+		console.log(data)
 
 		if (response.status===201) {	
-			addToken(data.token)
-			alert("¡Bienvenido!");
+
+			addToken(data['token'])
+			
+			Toast.fire({
+                icon: 'success',
+                title: `Bienvenido ${data['usuario']['email']}`
+              }); 
 			//window.location.href = "/";
 		} else{
-			alert("Credenciales incorrectas");
+			Swal.fire({
+                title: "Error",
+                text:"Verifique los datos ingresados",
+                icon:"error",
+                confirmButtonText:"Ok"
+            })
 		}
 
 		
-	} catch(error) {
-		console.log(error)
+	} catch(error) {		
+		console.log({
+			"error":"Error de servidor",
+			"msg":error
+		})
 	}
 }

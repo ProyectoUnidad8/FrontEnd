@@ -10,7 +10,7 @@ function PetsAdopt({ id, name, breed, category, description, gender, urlImage, i
 				<div className="box_icon" style={{ padding: "20px", width: "100%" }}>
 					<div className="icon" style={{display: "flex"}}>
 						<div className="image" style={{ width: "790px", margin:"auto", marginBottom:"0px", marginTop: "0px" }} >
-								<img src={urlImage} className="img-responsive" style={{ objectFit:"cover" , width: "100%", height: "530px" }} alt="" />
+								<img src={String(urlImage)} className="img-responsive" style={{ objectFit:"cover" , width: "100%", height: "530px" }} alt="" />
 						</div>
 							<div className="info" style={{ display: "grid", gridColumn: "auto", justifyContent: "center", alignItems: "center", marginTop: "5px" }}>
 							

@@ -6,5 +6,5 @@ export interface IPetAdopt {
 	category?: String; 
 	description: String;
 	gender: String;
-	urlImage: string;
+	urlImage: String;
 }

@@ -13,22 +13,17 @@ function Navbar() {
       </Fragment>  
    )
    const guestLinks = (
-      <Fragment>
-         <li><a href="/mis_mascotas">Mis Mascotas</a></li>
-         <li><a href="/perfil">Perfil</a></li>
+      <Fragment>                  
          <li><a href="/login">Login</a></li>
          </Fragment>
    )
 
    useEffect(()=>{
-      checkAuthenticated().then(res=>{         
-         if (res){
-            setIsAuthenticated(res)         
-         }else{
-            localStorage.removeItem('token')
-         }
-               
-      })
+      if(localStorage.getItem('token')){
+         setIsAuthenticated(true)
+      }else{
+         setIsAuthenticated(false)
+      }
    })
    
    return (

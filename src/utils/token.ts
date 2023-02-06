@@ -2,31 +2,22 @@
 let setTokenStorage: any[] = [];
 const storedTokens = localStorage.getItem("tokens");
 
-if (storedTokens) {
-	setTokenStorage = JSON.parse(storedTokens);
-}
 
 export function addToken(token: any) {
-	setTokenStorage.push(token);
-	localStorage.setItem("tokens", JSON.stringify(setTokenStorage));
+	// setTokenStorage.push(token);
+	localStorage.setItem("token", token);
 }
 
 
 // Enviar Token
-let getTokenStorage: any[] = [];
-const getToken = localStorage.getItem("tokens");
-
-if (getToken) {
-	getTokenStorage = JSON.parse(getToken)
-}
-
-export const lastToken = getTokenStorage[getTokenStorage.length - 1];
+export const lastToken = localStorage.getItem("token");
+export const userId = localStorage.getItem("user_id");
 
 
 
 // Eliminar Tokens
 export function removeTokens() {
-	localStorage.removeItem("tokens");
+	localStorage.removeItem("token");
 }
 
 

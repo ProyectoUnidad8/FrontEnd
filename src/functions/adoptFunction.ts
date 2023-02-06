@@ -4,12 +4,12 @@ import { lastToken } from "../utils/token";
 
 let headers = {
 	"Content-type": "application/json; charset=UTF-8",
-	"Authorization": 'Bearer ' + lastToken
+	"Authorization": `Bearer ${lastToken}`
 };
 
-export const allPetsToAdopt = async (state:any) => {
+export const allPetsToAdopt = async (state:any) => {		
 	const response = await fetch(urlAdoption, { headers: headers })
-	const data = await response.json()
+	const data = await response.json()	
 	state(data.data)
 }
 
