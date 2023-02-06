@@ -1,11 +1,10 @@
 import { FormEvent } from "react";
+import { urlAdoption, urlApplication } from "../utils/urls";
+import { lastToken } from "../utils/token"; 
 
-const token = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImplbHNpbkBnbWFpbCIsInBhc3N3b3JkIjoiMTIzNDU2IiwiaWF0IjoxNjc1NTk0MTAxLCJleHAiOjE2NzU1OTc3MDF9.xupiTcCDyK38r6m89uyr9UF9-KwmaA3HK2Uvx-iVCjU"
-const urlAdoption = "http://localhost:9003/api/v1/pet-adoption"
-const urlApplication = "http://localhost:9003/api/v1/application"
 let headers = {
 	"Content-type": "application/json; charset=UTF-8",
-	"Authorization": 'Bearer ' + token
+	"Authorization": 'Bearer ' + lastToken
 };
 
 export const allPetsToAdopt = async (state:any) => {
@@ -14,6 +13,7 @@ export const allPetsToAdopt = async (state:any) => {
 	state(data.data)
 }
 
+
 export const sendApplication = async (event:FormEvent) => {
 	event.preventDefault();
 	try{
@@ -21,13 +21,8 @@ export const sendApplication = async (event:FormEvent) => {
 		const formData = new FormData(event.target as HTMLFormElement);
 		const datos: { [key: string]: any } = {};
 		
-		// validation
-		const name = formData.get("name");
-  		const dni = formData.get("dni");
-  		const phone = formData.get("phone");
-  		const description = formData.get("description");
 
-		if (!name || !dni || !phone || !description) {
+		if (!formData.get("name")|| !formData.get("dni") || !formData.get("phone") || !formData.get("description")) {
 			alert("Por favor, rellena todos los campos");
 			return;
 		}
@@ -36,8 +31,8 @@ export const sendApplication = async (event:FormEvent) => {
 			datos[key] = value;
 		}
 
-		const id = Number(formData.get("petAdoptId")) // Obtienes el Id de petAdoptIdr que recibe el FormData
-		datos["petAdoptId"]= id  // Una vez hecho el forEach conviertes el Id que en un principio era un string a un número
+		const id = Number(formData.get("petAdoptId"))
+		datos["petAdoptId"] = id
 		
 		await fetch(urlApplication,{ method: "POST",	headers: headers, body: JSON.stringify(datos) } )
 		alert("¡Tu solicitud se envió correctamente, tienes un gran corazón!");
