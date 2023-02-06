@@ -22,13 +22,6 @@ const data = [
         raza : "Callejero",
         descripcion:"perrito bonito",
         edad : 2,
-    },
-    {
-        id: 3,
-        nombre:"Negrito",    
-        raza : "Callejero",
-        descripcion:"perrito bonito",
-        edad : 2,
     }
 ]
 const MisMascotas = () =>{

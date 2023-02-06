@@ -1,8 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+
+
+//js
+import './utils/loader.js'
+// import './assets/js/jquery.min.js'
+import './assets/js/bootstrap.min.js';
+import './assets/js/plugins.js'
+
 
 
 //CSS
@@ -16,6 +22,10 @@ import './assets/css/plugins.css'
 import './index.css';
 import './assets/styles/maincolors.css';
 
+
+
+import App from './App';
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

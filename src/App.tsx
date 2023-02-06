@@ -7,6 +7,7 @@ import MisMascotas from './containers/pages/MisMascotas';
 import About from './containers/About';
 import Error from './containers/errors/Error404';
 import Donate from './containers/pages/Donate';
+import Diagnostico from './containers/pages/Diagnostico';
 
 import PetsToAdoption from './containers/pages/PageAdoptPets';
 
@@ -20,9 +21,10 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/about" element={<About />} />
-        <Route path="/mis_mascotas" element={<MisMascotas />}></Route>
-        <Route path="/donate" element={<Donate />}></Route>
-        <Route path="/mis_mascotas" element={<MisMascotas />}/>
+
+        <Route path="/mis_mascotas" element={<MisMascotas />} />
+        <Route path="/donate" element={<Donate />}></Route>    
+        <Route path="/diagnostico/:diagnosticoId" element={<Diagnostico />} />
         <Route path="/adopt-pet" element={ <PetsToAdoption />}>
         </Route>
       </Routes>

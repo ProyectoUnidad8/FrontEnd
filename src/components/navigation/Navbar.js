@@ -1,9 +1,35 @@
-import { Fragment,useState } from "react";
+import { Fragment,useEffect,useState } from "react";
 import logo from "../../assets/img/logo.png"
-import { logOut } from "../../utils/Auth";
+import { checkAuthenticated, logOut } from "../../utils/Auth";
 
 function Navbar() {  
    const [isAuthenticated, setIsAuthenticated] = useState(false)
+
+   const authLinks = (
+      <Fragment>      
+         <li><a href="/mis_mascotas">Mis Mascotas</a></li>
+         <li><a href="/perfil">Perfil</a></li>
+         <li><a href="/" onClick={logOut}>Logout</a></li>         
+      </Fragment>  
+   )
+   const guestLinks = (
+      <Fragment>
+         <li><a href="/mis_mascotas">Mis Mascotas</a></li>
+         <li><a href="/perfil">Perfil</a></li>
+         <li><a href="/login">Login</a></li>
+         </Fragment>
+   )
+
+   useEffect(()=>{
+      checkAuthenticated().then(res=>{         
+         if (res){
+            setIsAuthenticated(res)         
+         }else{
+            localStorage.removeItem('token')
+         }
+               
+      })
+   })
    
    return (
       <Fragment>
@@ -32,7 +58,7 @@ function Navbar() {
                      <li><a href="/adopt-pet">¡Adopta!</a></li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">                     
-                     <li><a href="/login">Login</a></li>
+                     {isAuthenticated? authLinks:guestLinks}
                   </ul>
                </div>
                {/* <!-- /.navbar-collapse --> */}
