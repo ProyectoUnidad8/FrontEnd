@@ -6,48 +6,78 @@ import { getPetDiagnostic } from "../../functions/Diagnostic"
 import { urlPetDiagnostic } from "../../utils/urls"
 
 
-const Diagnosticos = () =>{
+const Diagnosticos = () => {
     const params = useParams()
 
     const petId = params.petId
 
     const [data, setData] = useState([{
-        id:1,
-        symptoms:"Example1",
-        medication:"Pastillas cada 4 horas"
+        id: 1,
+        symptoms: "Example1",
+        medication: "Pastillas cada 4 horas",
+        createdAt:"18/06/2021"
     }])
 
-    useEffect(()=>{
+    useEffect(() => {
         showDiagnostic()
-    },[])
-  
-    const showDiagnostic = async ():Promise<any>=>{        
+    }, [])
+
+    const showDiagnostic = async (): Promise<any> => {
         const datos_response = await getPetDiagnostic(Number(petId))
-        if (datos_response.length > 0){
+        if (datos_response.length > 0) {
+            console.log("Hola")
+            console.log(datos_response)
             setData(datos_response)
         }
-        
-    }    
-    
+
+    }
+
+
+
+
     return (
         <Layout>
-            <div>
-                {
-                    data &&
-                    data !== null && 
-                    data.map((diagnostico, index)=>(
-                        <div key={index}>
-                            <PetDiagnostic 
-                            id = {diagnostico.id}
-                            symptoms ={diagnostico.symptoms}
-                            medication  ={diagnostico.medication}
-                            />
-                        </div>
+            <section id="adoption" className="pages">
+                <div className="jumbotron" data-stellar-background-ratio="0.5">
+                    {/* <!-- Heading --> */}
+                    <div className="jumbo-heading" data-stellar-background-ratio="1.2">
+                        <h1>Diagnosticos realizados
+                        </h1>
+                    </div>
+                </div>
+                {/* <!-- container--> */}
+                <div className="container">
+                    {/* <!-- row --> */}
+                    <div className="row">
+                        {/* <!-- /col-lg-6 --> */}
                         
-                    )                        
-                )}
-            </div>
-            
+                            {
+                                data &&
+                                data !== null &&
+                                data.map((diagnostico, index) => (
+                                    <div className="col-lg-6 col-md-6 res-margin">
+                                        <div key={index}>
+                                            <PetDiagnostic
+
+                                                id={diagnostico.id}
+                                                symptoms={diagnostico.symptoms}
+                                                medication={diagnostico.medication}
+                                                createdAt = {diagnostico.createdAt}
+                                            />
+                                        </div>
+                                    </div>
+                                )
+                                )}
+                            {/* <!-- /ul custom--> */}
+                        
+                        {/* <!-- /col-lg-6 --> */}
+                    </div>
+                    {/* <!-- row --> */}
+
+                </div>
+                {/* <!-- /container--> */}
+            </section>
+
         </Layout>
     )
 }

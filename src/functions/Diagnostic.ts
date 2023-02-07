@@ -6,19 +6,19 @@ export const getPetDiagnostic = async (petId:Number) => {
     const config = {
         headers:{
             "Content-type": "application/json; charset=UTF-8",
-	        "Authorization": `Bearer  ${localStorage.getItem('token')}`
+	        "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }
 
     if(localStorage.getItem('token')){
         try{
-            const res = await axios.get(`${urlPetDiagnostic}/${petId}`,config)
-            if (res.status === 200){
-                console.log("Devolvio algo")
-                return res.data
+            const res = await axios.get(`${urlPetDiagnostic}/by_pet/${petId}`,config)
+            if (res.status === 200){                                  
+                return res.data.data
             }
         }catch(err){
             console.log("ha ocurrido un error")
+            console.log(err)
             return []
         }
     }else{

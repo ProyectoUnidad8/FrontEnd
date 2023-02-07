@@ -46,15 +46,14 @@ export const LoginFunction = async (event:FormEvent) => {
 		const data = await response.json()
 		console.log(data)
 
-		if (response.status===201) {	
-
+		if (response.status===201) {				
 			addToken(data['token'])
-			
+			localStorage.setItem('user_id', data['id'])
+			localStorage.setItem('role', data['role'])			
 			Toast.fire({
                 icon: 'success',
-                title: `Bienvenido ${data['usuario']['email']}`
-              }); 
-			//window.location.href = "/";
+                title: `Bienvenido ${data['email']}`
+              });			
 		} else{
 			Swal.fire({
                 title: "Error",

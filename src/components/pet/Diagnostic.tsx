@@ -1,16 +1,26 @@
 import { Fragment } from "react"
 import { IPetDiagnostic } from "../../interfaces/IDiagnostic"
 
-function PetDiagnostic ({id, symptoms, medication}: IPetDiagnostic){
-    return(
+function PetDiagnostic({ id, symptoms, medication, createdAt }: IPetDiagnostic) {
+    function formatDate(fecha:any){
+        const date = new Date(fecha).toDateString();
+        return date
+    }
+    return (
         <Fragment>
-            <div key={Number(id)}>
-                <h1>Pet Diagnostic</h1>
-                
-                <h3>{symptoms}</h3>
-                <h3>{medication}</h3>
-            </div>
-            
+            <div className="review-caption">                
+                <div className="small-heading">       
+                    <h6>fecha de diagnostico</h6>
+                    {formatDate(createdAt)}
+                </div>                
+                <blockquote>
+                    <h5><span>Sintomas:</span>  {symptoms}</h5>
+                    <h6><span>Medicacion: </span> {medication}</h6>
+                    El perrito ingreso con una fiebre de 32° estaba
+                    solo estaba acostado y no queria comer ni tomar agua
+
+                </blockquote>
+            </div>            
         </Fragment>
     )
 }

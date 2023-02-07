@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Modal from "../modals/ModalApplicationAdopt";
 
 function PetsAdopt({ id, name, breed, category, description, gender, urlImage, isAdopted }: IPetAdopt ) {
-	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [isModalOpen, setIsModalOpen] = useState(false);	
 
 	return(
 			<>
@@ -12,7 +12,7 @@ function PetsAdopt({ id, name, breed, category, description, gender, urlImage, i
 						<div className="image" style={{ width: "790px", margin:"auto", marginBottom:"0px", marginTop: "0px" }} >
 								<img src={String(urlImage)} className="img-responsive" style={{ objectFit:"cover" , width: "100%", height: "530px" }} alt="" />
 						</div>
-							<div className="info" style={{ display: "grid", gridColumn: "auto", justifyContent: "center", alignItems: "center", marginTop: "5px" }}>
+						<div className="info" style={{ display: "grid", gridColumn: "auto", justifyContent: "center", alignItems: "center", marginTop: "5px" }}>
 							
 							<h1>{name}</h1>
 							

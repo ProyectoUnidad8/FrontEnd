@@ -58,26 +58,31 @@ const MisMascotas = () =>{
     return(
         <Layout>
             <>
-            <div className="row margin-1">             
-                {                    
-                    data &&
-                    data!== null &&
-                    data.map((mascota, index)=>(                        
-                        <div className="row margin-1" key={index}>             
-                            <Mascota
-                                id= {mascota.id}
-                                name= {mascota.name}
-                                age = {mascota.age}
-                                breed= {mascota.breed}
-                                gender= {mascota.gender}
-                                description= {mascota.description}
-                                urlImage={mascota.url_image}
-                            />
-                        </div>
-                    ))
-                }
-                                    
-            </div>
+            <section id="about-index" className="bg-lightcolor1" >
+                <div className="container">
+                <div className="section-heading text-center">
+                    <h2>Mis Mascotas</h2>
+                </div>      
+                    
+                    {                    
+                        data &&
+                        data!== null &&
+                        data.map((mascota, index)=>(                        
+                            <div className="row margin-1" key={index}>             
+                                <Mascota
+                                    id= {mascota.id}
+                                    name= {mascota.name}
+                                    age = {mascota.age}
+                                    breed= {mascota.breed}
+                                    gender= {mascota.gender}
+                                    description= {mascota.description}
+                                    urlImage={mascota.url_image}
+                                />
+                            </div>
+                        ))
+                    }
+                </div>           
+            </section>
             </>
         </Layout>
     )

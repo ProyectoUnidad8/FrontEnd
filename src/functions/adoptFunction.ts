@@ -1,6 +1,7 @@
 import { FormEvent } from "react";
 import { urlAdoption, urlApplication } from "../utils/urls";
 import { lastToken } from "../utils/token"; 
+import Swal from "sweetalert2";
 
 let headers = {
 	"Content-type": "application/json; charset=UTF-8",
@@ -35,9 +36,16 @@ export const sendApplication = async (event:FormEvent) => {
 		datos["petAdoptId"] = id
 		
 		await fetch(urlApplication,{ method: "POST",	headers: headers, body: JSON.stringify(datos) } )
-		alert("¡Tu solicitud se envió correctamente, tienes un gran corazón!");
-  		window.location.href = "/";
-
+		Swal.fire({
+			icon:'success',
+            title: 'Solicitud enviada',
+			text: 'Te enviaremos un mensaje para coordinar',
+            showConfirmButton: false,
+            timer: 1500,
+			willClose:()=>{
+				window.location.href = "/";
+			}
+		})  		
 	} catch(error) {
 		console.log(error)
 	}
