@@ -5,8 +5,6 @@ import { getAllClients } from "../../functions/Customers"
 import Swal from "sweetalert2"
 
 
-const ExpandedComponent = ({ data }) => <pre>{JSON.stringify(data, null, 2)}</pre>;
-
 
 const ClienteAdmin =()=>{
     const [data, setData] = useState([])

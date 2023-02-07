@@ -5,34 +5,40 @@ import { lastToken } from "../../utils/token";
 
 function Navbar() {  
    const [isAuthenticated, setIsAuthenticated] = useState(false)
-
-   const authLinks = (
-      <Fragment>      
-         <li><a href="/mis_mascotas">Mis Mascotas</a></li>         
-         <li><a href="/" onClick={logOut}>Logout</a></li>         
-      </Fragment>  
-   )
+   
    const guestLinks = (
       <Fragment>                  
          <li><a href="/login">Login</a></li>
       </Fragment>
    )
+  
 
-   const adminLinks = (
-      <Fragment>                  
-         <li><a href="/login">Clientes</a></li>
-         <li><a href="/login">Mascotas</a></li>
-         <li><a href="/login">Solicitudes</a></li>
-         <li><a href="/login">Diagnosticos Totales</a></li>
-         <li><a href="/login">Mascotas Adopcion</a></li>   
-         <li><a href="/login">Donaciones</a></li>   
+   const checkRole = (role) =>{      
+         if (role==='ADMIN'){
+            return (
+               <Fragment>                  
+                  <li><a href="/admin/usuarios">Clientes</a></li>
+                  <li><a href="/admin/mascota">Mascotas</a></li>
+                  <li><a href="/admin/solicitudes">Solicitudes</a></li>
+                  <li><a href="/admin/diagnosticos">Diagnosticos Totales</a></li>
+                  <li><a href="/admin/mascotas/adopcion">Mascotas Adopcion</a></li>   
+                  <li><a href="/admin/donaciones">Donaciones</a></li>   
+                  <li><a href="/" onClick={logOut}>Logout</a></li>
+         </Fragment>)
+         }else if (role==='USER') {
+            return (
+               <Fragment>      
+               <li><a href="/mis_mascotas">Mis Mascotas</a></li>         
+               <li><a href="/" onClick={logOut}>Logout</a></li>         
+            </Fragment>
+            )
+         }  
+   }
 
-      </Fragment>
-   )
 
    useEffect(()=>{
       if(lastToken){
-         setIsAuthenticated(true)
+         setIsAuthenticated(true)         
       }else{
          setIsAuthenticated(false)
       }
@@ -65,13 +71,13 @@ function Navbar() {
                      <li><a href="/adopt-pet">¡Adopta!</a></li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">                     
-                     {isAuthenticated? adminLinks:guestLinks}
+                     {isAuthenticated? checkRole(localStorage.getItem('role')) : guestLinks}
                   </ul>
                </div>
                {/* <!-- /.navbar-collapse --> */}
             </div>
             {/* <!-- /.container --> */}
-         </nav>
+         </nav>         
       </Fragment>
 
    )

@@ -18,7 +18,7 @@ export const getAllClients = async() =>{
             console.log(err)            
             return []
         }
-    }else{        
+    }else{                
         return []
     }
 

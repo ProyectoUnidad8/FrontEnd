@@ -52,9 +52,9 @@ const Diagnosticos = () => {
                                         <div>
                                             <PetDiagnostic
                                                 id={diagnostico.id}
-                                                symptoms={diagnostico.symptoms !== null ? '' : diagnostico.symptoms}
-                                                medication={diagnostico.medication !== null ? '' : diagnostico.medication}
-                                                createdAt = {diagnostico.createdAt !== null ? '' : diagnostico.createdAt}
+                                                symptoms={diagnostico.symptoms !== null ? diagnostico.symptoms: ''  }
+                                                medication={diagnostico.medication !== null ? diagnostico.medication: ''  }
+                                                createdAt = {diagnostico.createdAt !== null ? diagnostico.createdAt: ''  }
                                             />
                                         </div>
                                     </div>
