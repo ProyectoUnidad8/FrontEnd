@@ -41,7 +41,7 @@ function Footer(){
             </div>
          </div>
          {/* <!-- /credits --> */}
-      </footer>                  
+      </footer>                        
     </Fragment>
 
 )}

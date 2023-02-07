@@ -1,25 +1,37 @@
 import { Fragment,useEffect,useState } from "react";
 import logo from "../../assets/img/logo.png"
-import { checkAuthenticated, logOut } from "../../utils/Auth";
+import { logOut } from "../../utils/Auth";
+import { lastToken } from "../../utils/token";
 
 function Navbar() {  
    const [isAuthenticated, setIsAuthenticated] = useState(false)
 
    const authLinks = (
       <Fragment>      
-         <li><a href="/mis_mascotas">Mis Mascotas</a></li>
-         <li><a href="/perfil">Perfil</a></li>
+         <li><a href="/mis_mascotas">Mis Mascotas</a></li>         
          <li><a href="/" onClick={logOut}>Logout</a></li>         
       </Fragment>  
    )
    const guestLinks = (
       <Fragment>                  
          <li><a href="/login">Login</a></li>
-         </Fragment>
+      </Fragment>
+   )
+
+   const adminLinks = (
+      <Fragment>                  
+         <li><a href="/login">Clientes</a></li>
+         <li><a href="/login">Mascotas</a></li>
+         <li><a href="/login">Solicitudes</a></li>
+         <li><a href="/login">Diagnosticos Totales</a></li>
+         <li><a href="/login">Mascotas Adopcion</a></li>   
+         <li><a href="/login">Donaciones</a></li>   
+
+      </Fragment>
    )
 
    useEffect(()=>{
-      if(localStorage.getItem('token')){
+      if(lastToken){
          setIsAuthenticated(true)
       }else{
          setIsAuthenticated(false)
@@ -53,7 +65,7 @@ function Navbar() {
                      <li><a href="/adopt-pet">¡Adopta!</a></li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">                     
-                     {isAuthenticated? authLinks:guestLinks}
+                     {isAuthenticated? adminLinks:guestLinks}
                   </ul>
                </div>
                {/* <!-- /.navbar-collapse --> */}

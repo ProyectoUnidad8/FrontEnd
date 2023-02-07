@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 //import { urlUser } from "../utils/urls";
+import { clearLocalStorage } from "./clearLocalStorage";
 import { addToken } from "../utils/token";
 import { urlUser } from "../utils/urls";
 import Swal from "sweetalert2";
@@ -65,9 +66,6 @@ export const LoginFunction = async (event:FormEvent) => {
 
 		
 	} catch(error) {		
-		console.log({
-			"error":"Error de servidor",
-			"msg":error
-		})
+		clearLocalStorage()
 	}
 }
