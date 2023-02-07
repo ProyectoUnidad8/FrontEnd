@@ -27,12 +27,8 @@ const Diagnosticos = () => {
         if (datos_response.length > 0) {            
             setData(datos_response)
         }
-
     }
-
-
-
-
+    
     return (
         <Layout>
             <section id="adoption" className="pages">
@@ -55,11 +51,10 @@ const Diagnosticos = () => {
                                     <div className="col-lg-6 col-md-6 res-margin" key={index}>
                                         <div>
                                             <PetDiagnostic
-
                                                 id={diagnostico.id}
-                                                symptoms={diagnostico.symptoms}
-                                                medication={diagnostico.medication}
-                                                createdAt = {diagnostico.createdAt}
+                                                symptoms={diagnostico.symptoms !== null ? '' : diagnostico.symptoms}
+                                                medication={diagnostico.medication !== null ? '' : diagnostico.medication}
+                                                createdAt = {diagnostico.createdAt !== null ? '' : diagnostico.createdAt}
                                             />
                                         </div>
                                     </div>

@@ -52,12 +52,12 @@ const Home = () => {
                         Velamos por el cuidado de tu perrito
                      </p>
                      {/* <!-- Accordion --> */}
-                     <div className="panel-group" id="accordion">
+                     <div className="panel-group">
                         {/* <!-- Question 1 --> */}
                         <div className="panel">
                            <div className="panel-heading">
                               <h5 className="panel-title">
-                                 <a className="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">Responsabilidad Social</a>
+                                 <a className="">Responsabilidad Social</a>
                               </h5>
                            </div>
                            <div id="collapseOne" className="panel-collapse collapse in">
@@ -68,36 +68,8 @@ const Home = () => {
                               </div>
                            </div>
                         </div>
-                        {/* <!-- Question 2 --> */}
-                        <div className="panel">
-                           <div className="panel-heading">
-                              <h5 className="panel-title">
-                                 <a className="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">Mision</a>
-                              </h5>
-                           </div>
-                           <div id="collapseTwo" className="panel-collapse collapse">
-                              <div className="panel-body">
-                                 <p>Patatemp dolupta orem retibusam qui commolu
-                                    les felis tiam non metus ali quam eros Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
-                        {/* <!-- Question 3 --> */}
-                        <div className="panel">
-                           <div className="panel-heading">
-                              <h5 className="panel-title">
-                                 <a className="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree">Mision</a>
-                              </h5>
-                           </div>
-                           <div id="collapseThree" className="panel-collapse collapse">
-                              <div className="panel-body">
-                                 <p>Patatemp dolupta orem retibusam qui commolu
-                                    les felis tiam non metus ali quam eros Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                 </p>
-                              </div>
-                           </div>
-                        </div>
+                       
+                       
                      </div>
                      {/* <!-- /.accordion --> */}
                   </div>

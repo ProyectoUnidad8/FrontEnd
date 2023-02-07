@@ -6,8 +6,8 @@ import './index.css';
 //js
 import './utils/loader.js'
 // import './assets/js/jquery.min.js'
-import './assets/js/bootstrap.min.js';
-import './assets/js/plugins.js'
+// import './assets/js/bootstrap.min.js';
+// import './assets/js/plugins.js'
 
 
 

@@ -1,5 +1,6 @@
 import axios from "axios"
 import { urlPetDiagnostic } from "../utils/urls"
+import { clearLocalStorage } from "./clearLocalStorage"
  
 
 export const getPetDiagnostic = async (petId:Number) => { 
@@ -17,9 +18,11 @@ export const getPetDiagnostic = async (petId:Number) => {
                 return res.data.data
             }
         }catch(err){            
+            clearLocalStorage()
             return []
         }
     }else{
+        clearLocalStorage()
         return []
     }
     

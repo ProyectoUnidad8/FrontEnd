@@ -3,29 +3,6 @@ import Mascota from "../../components/pet/Mascota";
 import { useEffect, useState } from "react";
 
 import { getUserPets } from "../../functions/Pets";
-const data = [
-    {
-        id: 1,
-        nombre:"Puchy",    
-        raza : "Schauzer",
-        descripcion:"perrito bonito encontrado y rescatado",
-        edad : 3,
-    },
-    {
-        id: 2,
-        nombre:"Puchy 2",    
-        raza : "Schauzer 222",
-        descripcion:"perrito bonito",
-        edad : 3,
-    },
-    {
-        id: 99,
-        nombre:"Negrito",    
-        raza : "Callejero",
-        descripcion:"perrito bonito",
-        edad : 2,
-    }
-]
 
 
 const MisMascotas = () =>{
@@ -62,8 +39,7 @@ const MisMascotas = () =>{
                 <div className="container">
                 <div className="section-heading text-center">
                     <h2>Mis Mascotas</h2>
-                </div>      
-                    
+                </div>                    
                     {                    
                         data &&
                         data!== null &&
@@ -74,9 +50,9 @@ const MisMascotas = () =>{
                                     name= {mascota.name}
                                     age = {mascota.age}
                                     breed= {mascota.breed}
-                                    gender= {mascota.gender}
-                                    description= {mascota.description}
-                                    urlImage={mascota.url_image}
+                                    gender= {mascota.gender !== null ? '' : mascota.description}
+                                    description= {mascota.description !== null ? '' : mascota.description}
+                                    urlImage={mascota.url_image !== null ? '' : mascota.url_image}
                                 />
                             </div>
                         ))
