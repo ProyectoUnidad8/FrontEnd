@@ -66,8 +66,7 @@ function Navbar() {
                {/* <!-- Collect the nav links, forms, and other content for toggling --> */}
                <div className="collapse navbar-collapse" id="navbar-brand-centered">
                   <ul className="nav navbar-nav">
-                     <li><a href="/">Home</a></li>
-                     <li><a href="!#">Nosotros</a></li>
+                     <li><a href="/">Home</a></li>                     
                      <li><a href="/adopt-pet">¡Adopta!</a></li>
                   </ul>
                   <ul className="nav navbar-nav navbar-right">                     
