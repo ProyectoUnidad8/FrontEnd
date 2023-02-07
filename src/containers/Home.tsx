@@ -1,5 +1,8 @@
 import slide0 from "../assets/img/slide0.jpg";
+import aboutindex from "../assets/img/about-index.png";
 import Layout from "../hocs/layout";
+
+import petbowl from "../assets/img/illustrations/petbowl.png";
 
 const Home = () => {
     return (
@@ -99,15 +102,10 @@ const Home = () => {
                      {/* <!-- /.accordion --> */}
                   </div>
                   {/* <!-- /col-md-7--> */}
-                  {/* <!-- Parallax object --> */}
-                  <div className="parallax-object1 hidden-sm hidden-xs" data-100-start="right: 0%;"
-                     data-center-bottom="right:30%;"  >
-                     {/* <!-- Image --> */}
-                     <img src="img/illustrations/petbowl.png" alt="" />
-                  </div>
+                                    
                   {/* <!-- /parallax-object1--> */}
                   <div className="col-md-6 col-lg-5" >
-                     <img src="img/about-index.png" className="img-responsive" alt="" />
+                     <img src={aboutindex} className="img-responsive" alt="" />
                   </div>
                   {/* <!-- /col-md-5--> */}
                </div>
