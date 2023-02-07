@@ -22,7 +22,7 @@ const Modal: FC<ModalProps> = ({ id, isOpen, closeModal }) => {
 			<div className="modal-content" >
 				<form action="" method='post' onSubmit={ sendApplication }>
 					
-					<h1 style={{ fontSize: "40px"}}> Solicitud de Adopción</h1>
+					<h1 style={{ fontSize: "50px", textAlign: "center"}}> Solicitud de Adopción</h1>
 					
 				   <input
 						name="petAdoptId"
