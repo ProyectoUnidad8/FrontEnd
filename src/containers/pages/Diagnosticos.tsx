@@ -24,9 +24,7 @@ const Diagnosticos = () => {
 
     const showDiagnostic = async (): Promise<any> => {
         const datos_response = await getPetDiagnostic(Number(petId))
-        if (datos_response.length > 0) {
-            console.log("Hola")
-            console.log(datos_response)
+        if (datos_response.length > 0) {            
             setData(datos_response)
         }
 
@@ -49,14 +47,13 @@ const Diagnosticos = () => {
                 <div className="container">
                     {/* <!-- row --> */}
                     <div className="row">
-                        {/* <!-- /col-lg-6 --> */}
-                        
+                        {/* <!-- /col-lg-6 --> */}                        
                             {
                                 data &&
                                 data !== null &&
                                 data.map((diagnostico, index) => (
-                                    <div className="col-lg-6 col-md-6 res-margin">
-                                        <div key={index}>
+                                    <div className="col-lg-6 col-md-6 res-margin" key={index}>
+                                        <div>
                                             <PetDiagnostic
 
                                                 id={diagnostico.id}
