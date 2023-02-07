@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './containers/Home';
 import Login from './containers/auth/Login';
 import MisMascotas from './containers/pages/MisMascotas';
-import About from './containers/About';
 import Error from './containers/errors/Error404';
 import Donate from './containers/pages/Donate';
 import Diagnosticos from './containers/pages/Diagnosticos';

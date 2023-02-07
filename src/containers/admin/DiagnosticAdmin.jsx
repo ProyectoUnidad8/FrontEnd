@@ -42,7 +42,10 @@ const DiagnosticAdmin = () =>{
             confirmButtonText: 'Yes, delete it!'
           }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await deleteDiagnostic(diagnosticId)                
+                const res = await deleteDiagnostic(diagnosticId)  
+                if (res.status ===200 ){
+                    console.log('.')
+                }
                 Swal.fire(
                     'Eliminado!',
                     'El registro a sido eliminado',

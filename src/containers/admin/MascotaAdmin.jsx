@@ -47,6 +47,9 @@ const MascotaAdmin =()=>{
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await deletePet(petId)
+                if (res.status === 200){
+                    console.log('')
+                }
                 Swal.fire(
                     'Eliminado!',
                     'La mascota ha sido elminada Correctamente.',
@@ -94,22 +97,9 @@ const MascotaAdmin =()=>{
         
     ];
     
-    const datos = [
-        {
-            id: 1,
-            title: 'Beetlejuice',
-            year: '1988',
-        },
-        {
-            id: 2,
-            title: 'Ghostbusters',
-            year: '1984',
-        },
-    ]
 
     useEffect(()=>{        
-        obtenerPets()        
-        console.log(data)
+        obtenerPets()                
     },[])
 
     const obtenerPets = async () => {

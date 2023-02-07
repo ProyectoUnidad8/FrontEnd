@@ -45,6 +45,9 @@ const ClienteAdmin =()=>{
           }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await deleteClient(clientId)
+                if (res.status === 200){
+                    console.log('.')
+                }
                 Swal.fire(
                     'Eliminado!',
                     'Cliente ha sido eliminado correctamente',
@@ -91,18 +94,9 @@ const ClienteAdmin =()=>{
     const crearCliente = () =>{
 
     }
-    
-    const datos = [
-        {
-            id: 1,
-            title: 'Beetlejuice',
-            year: '1988',
-        }
-    ]
 
     useEffect(()=>{        
-        obtenerUsuarios()        
-        console.log(data)
+        obtenerUsuarios()         
     },[])
 
     const obtenerUsuarios = async () => {
