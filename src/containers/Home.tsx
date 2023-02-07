@@ -1,12 +1,14 @@
+import { useEffect, useRef } from "react";
 import slide0 from "../assets/img/slide0.jpg";
 import aboutindex from "../assets/img/about-index.png";
 import Layout from "../hocs/layout";
 
-import petbowl from "../assets/img/illustrations/petbowl.png";
-
 const Home = () => {
+   const dataFetchedRef = useRef(false);
+
+   
     return (
-        <Layout>
+        <Layout>            
             <div className="slider-container">
             <div className="slider-control left inactive"></div>
             <div className="slider-control right"></div>
@@ -158,6 +160,7 @@ const Home = () => {
                </p>
                <h4 className="margin1">Send us a Message</h4>
                {/* <!-- Form Starts --> */}
+               
                <div id="contact_form">
                   <div className="form-group">
                      <label>Name<span className="required">*</span></label>
@@ -170,9 +173,8 @@ const Home = () => {
                               <textarea name="message" id="message" className="textarea-field form-control" rows={3} required ></textarea>
                            </div>
                            <button type="submit" id="submit_btn" value="Submit" className="btn center-block">Enviar</button>
-                        </div>
-                        {/* <!-- Contact results --> */}
-                        <div id="contact_results"></div>
+                        </div>                         
+                  <div id="contact_results"></div>
                   </div>
                   {/* <!-- Contact --> */}
                   {/* <!-- /col-lg-5--> */}

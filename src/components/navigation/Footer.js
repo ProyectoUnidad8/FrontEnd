@@ -41,7 +41,8 @@ function Footer(){
             </div>
          </div>
          {/* <!-- /credits --> */}
-      </footer>                        
+      </footer>          
+      <script src="https://sdk.mercadopago.com/js/v2"></script>              
     </Fragment>
 
 )}

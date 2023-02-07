@@ -2,8 +2,12 @@ import { Fragment } from "react"
 import { IPetDiagnostic } from "../../interfaces/IDiagnostic"
 
 function PetDiagnostic({ id, symptoms, medication, createdAt }: IPetDiagnostic) {
+    console.log('asdas')
+    console.log(createdAt)
     function formatDate(fecha:any){
+        console.log(fecha)
         const date = new Date(fecha).toDateString();
+        console.log(date)
         return date
     }
     return (
