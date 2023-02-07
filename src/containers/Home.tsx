@@ -24,7 +24,7 @@ const Home = () => {
                         <h1 className="slide__text-heading">Hola!</h1>
                         <div className="hidden-mobile">
                            <p className="lead">Somos una pequeña organizacion que busca ayudar a mascotas abandonadas</p>
-                           <a href="/about" className="btn btn-default">Acerca de nosotros</a>
+                           <a href="!#" className="btn btn-default">Acerca de nosotros</a>
                         </div>
                      </div>
                   </div>
