@@ -8,3 +8,15 @@ export interface IPetAdopt {
 	gender: String;
 	urlImage: String;
 }
+
+export interface IAdminPetAdopt {
+	id: Number;
+	name: String;
+	breed: String;
+	age?: Number;
+	isAdopted: Boolean;
+	category?: String; 
+	description: String;
+	gender: String;
+	urlImage: String;
+}

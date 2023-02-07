@@ -54,25 +54,27 @@ const Home = () => {
                         Velamos por el cuidado de tu perrito
                      </p>
                      {/* <!-- Accordion --> */}
+                     
+                     
                      <div className="panel-group">
-                        {/* <!-- Question 1 --> */}
                         <div className="panel">
                            <div className="panel-heading">
                               <h5 className="panel-title">
-                                 <a className="">Responsabilidad Social</a>
+                                 <details>
+                                    <summary className="">Responsabilidad Social</summary>
+                                    <div id="collapseOne" className="panel-collapse collapse in">
+                                       <div className="panel-body">
+                                       <p>Patatemp dolupta orem retibusam qui commolu les felis tiam non metus ali quam eros Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.</p>
+                                       </div>
+                                    </div>
+                                 </details>
                               </h5>
                            </div>
-                           <div id="collapseOne" className="panel-collapse collapse in">
-                              <div className="panel-body">
-                                 <p>Patatemp dolupta orem retibusam qui commolu
-                                    les felis tiam non metus ali quam eros Pellentesque turpis lectus, placerat a ultricies a, posuere a nibh. Fusce mollis imperdiet interdum donec eget metus auguen unc vel mauris ultricies, vest ibulum orci eget, viverra elit.
-                                 </p>
-                              </div>
-                           </div>
                         </div>
-                       
-                       
                      </div>
+                                 
+
+
                      {/* <!-- /.accordion --> */}
                   </div>
                   {/* <!-- /col-md-7--> */}
