@@ -44,8 +44,7 @@ export const LoginFunction = async (event:FormEvent) => {
 		}
 
 		const response = await fetch(`${urlUser}/login/`,{ method: "POST",	headers: headers, body: JSON.stringify(datos) })
-		const data = await response.json()
-		console.log(data)
+		const data = await response.json()		
 
 		if (response.status===201) {				
 			addToken(data['token'])

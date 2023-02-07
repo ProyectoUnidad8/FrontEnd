@@ -1,22 +1,20 @@
-import Layout from "../../hocs/layout"
-import React,{ useEffect, useState } from "react"
-import DataTable from "react-data-table-component"
-import { getAllClients } from "../../functions/Customers"
-import Swal from "sweetalert2"
-
-import FilterComponent from "../../components/filterComponent"
-
-import { deleteClient } from "../../functions/Customers"
+import React, {useState, useEffect} from 'react';
+import Layout from '../../hocs/layout';
+import Swal from 'sweetalert2';
+import DataTable from 'react-data-table-component';
+import FilterComponent from "../../components/filterComponent";
+import { getAllDiagnostic, deleteDiagnostic } from '../../functions/Diagnostic';
 
 
-const ClienteAdmin =()=>{
+const DiagnosticAdmin = () =>{
     const [data, setData] = useState([])
 
     const [filterText, setFilterText] = useState('');
 	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 	const filteredItems = data.filter(
-		item => item.email && item.email.toLowerCase().includes(filterText.toLowerCase()),
+		item => item.pet.numberChip && item.pet.numberChip.toLowerCase().includes(filterText.toLowerCase()),
 	);
+    
 
 	const subHeaderComponentMemo = React.useMemo(() => {
 		const handleClear = () => {
@@ -27,30 +25,30 @@ const ClienteAdmin =()=>{
 		};
 
 		return (
-			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText}  msg={"Filtrar por email"}/>
+			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText}  msg={"Filtrar por Numero de Chip"}/>
 		);
 	}, [filterText, resetPaginationToggle]);
         
 
-    const btnEliminar = (e, clientId) =>{
-        e.preventDefault();
+    const btnEliminar = (e, diagnosticId) =>{
+        e.preventDefault()
         Swal.fire({
-            title: 'Estas seguro?',
-            text: "Eliminaras un cliente!",
+            title: 'Estas seguro',
+            text: "Borraras un diagnostico",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
-            confirmButtonText: 'Sí, borrar!'
+            confirmButtonText: 'Yes, delete it!'
           }).then(async (result) => {
             if (result.isConfirmed) {
-                const res = await deleteClient(clientId)
+                const res = await deleteDiagnostic(diagnosticId)                
                 Swal.fire(
                     'Eliminado!',
-                    'Cliente ha sido eliminado correctamente',
+                    'El registro a sido eliminado',
                     'success'
-                )
-                console.log("Registro eliminado!")
+                )                            
+                window.location.reload(true);
             }
           })
     }
@@ -61,20 +59,24 @@ const ClienteAdmin =()=>{
             selector: row => row.id,
         },
         {
-            name: 'Email',
-            selector: row => row.email,
+            name: 'Sintomas',
+            selector: row => row.symptoms,
         },
         {
-            name: 'Nombre',
-            selector: row => row.name,
-        },        
+            name: 'Medicacion',
+            selector: row => row.medication,
+        },
         {
             name: 'Fecha Creacion',
             selector: row => row.createdAt,
+        },
+        {
+            name: 'Numero de chip',
+            selector: row => row.pet.numberChip,
         },        
         {
-            name: 'Fecha Actualización',
-            selector: row => row.update_at,
+            name: 'Raza',
+            selector: row => row.pet.breed,
         },        
         {
             name:"Acciones",
@@ -86,28 +88,15 @@ const ClienteAdmin =()=>{
             ),
         }
         
-    ];
-
-    const crearCliente = () =>{
-
-    }
-    
-    const datos = [
-        {
-            id: 1,
-            title: 'Beetlejuice',
-            year: '1988',
-        }
-    ]
+    ];     
 
     useEffect(()=>{        
-        obtenerUsuarios()        
-        console.log(data)
+        obtenerDiagnosticos()        
     },[])
 
-    const obtenerUsuarios = async () => {
-        const datos_response = await getAllClients()
-        if (datos_response.length > 0) {            
+    const obtenerDiagnosticos = async () => {
+        const datos_response = await getAllDiagnostic()
+        if (datos_response.length > 0) {             
             setData(datos_response)
         } 
     }
@@ -119,8 +108,8 @@ const ClienteAdmin =()=>{
                     <div className="section-heading text-center">                        
                     </div>                    
                     <div className="row">
-                        <h2 className="margin-1">Registro de Clientes</h2>
-                        <button className="btn" onClick={e => crearCliente(e)}>Crear Registro</button>
+                        <h2 className="margin-1">Registro de Mascotas</h2>
+                        <button className="btn">Crear Registro</button>
                         <DataTable
                             columns={columns}
                             data={filteredItems}
@@ -130,7 +119,8 @@ const ClienteAdmin =()=>{
                             subHeaderComponent={subHeaderComponentMemo}
                             selectableRows
                             persistTableHead
-                                              
+                        
+                            
                         />
                     </div>
                 </div>
@@ -141,4 +131,4 @@ const ClienteAdmin =()=>{
     )
 
 }
-export default ClienteAdmin;
+export default DiagnosticAdmin

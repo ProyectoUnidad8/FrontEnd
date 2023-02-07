@@ -1,8 +1,10 @@
 import Layout from "../../hocs/layout"
-import {React, useEffect, useState } from "react"
+import React,{ useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { getAllPets } from "../../functions/Pets"
 import Swal from "sweetalert2"
+import FilterComponent from "../../components/filterComponent"
+import { deletePet } from "../../functions/Pets"
 
 
 
@@ -10,25 +12,47 @@ import Swal from "sweetalert2"
 
 const MascotaAdmin =()=>{
     const [data, setData] = useState([])
+
+    const [filterText, setFilterText] = useState('');
+	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+	const filteredItems = data.filter(
+		item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
+	);
+    
+
+	const subHeaderComponentMemo = React.useMemo(() => {
+		const handleClear = () => {
+			if (filterText) {
+				setResetPaginationToggle(!resetPaginationToggle);
+				setFilterText('');
+			}
+		};
+
+		return (
+			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText}  msg={"Filtrar por email"}/>
+		);
+	}, [filterText, resetPaginationToggle]);
         
 
-    const btnEliminar = () =>{
+    const btnEliminar = (e, petId) =>{
+        e.preventDefault()
         Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
+            title: 'Estas Seguro?',
+            text: "Eliminaras una mascota",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then((result) => {
+          }).then(async (result) => {
             if (result.isConfirmed) {
-              Swal.fire(
-                'Deleted!',
-                'Your file has been deleted.',
-                'success'
-              )
-              console.log("Registro eliminado!")
+                const res = await deletePet(petId)
+                Swal.fire(
+                    'Eliminado!',
+                    'La mascota ha sido elminada Correctamente.',
+                    'success'
+                    ) 
+                window.location.reload(true);
             }
           })
     }
@@ -62,8 +86,7 @@ const MascotaAdmin =()=>{
             name:"Acciones",
             selector: row => (
                 <>
-                    <button className="btn" onClick={btnEliminar}>x</button>
-
+                   <button className="btn" onClick={(e) => btnEliminar(e,row.id)}>x</button>
                 </>
             
             ),
@@ -107,8 +130,13 @@ const MascotaAdmin =()=>{
                         <button className="btn">Crear Registro</button>
                         <DataTable
                             columns={columns}
-                            data={data}
-                            pagination       
+                            data={filteredItems}
+                            pagination
+                            paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
+                            subHeader
+                            subHeaderComponent={subHeaderComponentMemo}
+                            selectableRows
+                            persistTableHead
                         
                             
                         />

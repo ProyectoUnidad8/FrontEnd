@@ -14,6 +14,7 @@ import PetsToAdoption from './containers/pages/PageAdoptPets';
 //Admin Componentes
 import MascotaAdmin from './containers/admin/MascotaAdmin';
 import ClienteAdmin from './containers/admin/ClienteAdmin';
+import DiagnosticAdmin from './containers/admin/DiagnosticAdmin';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route path="admin"  >
               <Route path="mascota" element={<MascotaAdmin/>} />
               <Route path="usuarios" element={<ClienteAdmin/>} />
+              <Route path="diagnosticos" element={<DiagnosticAdmin/>} />
           </Route>
       </Routes>
     </Router>
