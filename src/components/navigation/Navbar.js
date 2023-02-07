@@ -19,9 +19,9 @@ function Navbar() {
                <Fragment>                  
                   <li><a href="/admin/usuarios">Clientes</a></li>
                   <li><a href="/admin/mascota">Mascotas</a></li>
-                  <li><a href="/admin/solicitudes">Solicitudes</a></li>
+                  <li><a href="/admin/aplications">Solicitudes</a></li>
                   <li><a href="/admin/diagnosticos">Diagnosticos Totales</a></li>
-                  <li><a href="/admin/mascotas/adopcion">Mascotas Adopcion</a></li>   
+                  <li><a href="/admin/adoptions">Mascotas Adopcion</a></li>   
                   <li><a href="/admin/donaciones">Donaciones</a></li>   
                   <li><a href="/" onClick={logOut}>Logout</a></li>
          </Fragment>)
@@ -42,7 +42,7 @@ function Navbar() {
       }else{
          setIsAuthenticated(false)
       }
-   })
+   },[])
    
    return (
       <Fragment>

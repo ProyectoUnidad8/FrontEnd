@@ -1,10 +1,8 @@
-import { useEffect, useRef } from "react";
 import slide0 from "../assets/img/slide0.jpg";
 import aboutindex from "../assets/img/about-index.png";
 import Layout from "../hocs/layout";
 
-const Home = () => {
-   const dataFetchedRef = useRef(false);
+const Home = () => {   
 
    
     return (

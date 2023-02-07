@@ -14,6 +14,9 @@ import PetsToAdoption from './containers/pages/PageAdoptPets';
 import MascotaAdmin from './containers/admin/MascotaAdmin';
 import ClienteAdmin from './containers/admin/ClienteAdmin';
 import DiagnosticAdmin from './containers/admin/DiagnosticAdmin';
+import CallPetsAdopt from './containers/admin/AdminAdoptionPage';
+import AllApplications from './containers/admin/AdminApplications';
+
 
 function App() {
   return (
@@ -27,11 +30,16 @@ function App() {
           <Route path="/donate" element={<Donate/>} />
           <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
           <Route path="/adopt-pet" element={ <PetsToAdoption />} />
+          <Route path="/mascota-admin" element={<MascotaAdmin/>} />
+
+
           {/* Admin Routes */}
           <Route path="admin"  >
               <Route path="mascota" element={<MascotaAdmin/>} />
               <Route path="usuarios" element={<ClienteAdmin/>} />
               <Route path="diagnosticos" element={<DiagnosticAdmin/>} />
+              <Route path="aplications" element={<AllApplications/>} />
+              <Route path="adoptions" element={<CallPetsAdopt/>} />
           </Route>
       </Routes>
     </Router>
@@ -39,3 +47,5 @@ function App() {
 }
 
 export default App;
+
+
