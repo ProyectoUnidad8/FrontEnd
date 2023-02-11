@@ -1,7 +1,7 @@
 import { Fragment,useEffect,useState } from "react";
 import logo from "../../assets/img/logo.png"
 import { logOut } from "../../utils/Auth";
-import { lastToken } from "../../utils/token";
+import { lastToken } from "../../utils/LocalStorage";
 
 function Navbar() {  
    const [isAuthenticated, setIsAuthenticated] = useState(false)

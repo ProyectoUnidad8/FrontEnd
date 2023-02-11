@@ -1,5 +1,5 @@
 import Layout from "../../hocs/layout";
-import { LoginFunction } from "../../functions/login";
+import { LoginFunction } from "../../functions/AuthLogin";
 
 const LoginForm = () => {
     return (        

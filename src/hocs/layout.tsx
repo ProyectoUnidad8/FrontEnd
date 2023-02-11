@@ -3,7 +3,7 @@ import Footer from "../components/navigation/Footer"
 import Navbar from "../components/navigation/Navbar"
 
 
-const Layout = (props) =>{
+const Layout = (props:any) =>{
     return(
         <Fragment>
             <div id="page-top">                             
