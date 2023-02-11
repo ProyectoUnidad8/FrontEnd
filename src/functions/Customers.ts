@@ -1,6 +1,6 @@
 import { urlUser } from "../utils/urls"
 import axios from "axios"
-import { clearLocalStorage } from "./clearLocalStorage"
+import { clearLocalStorage } from "../utils/ClearLocalStorage"
 
 
 

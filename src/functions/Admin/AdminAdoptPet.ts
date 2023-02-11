@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { urlAdoption } from "../../utils/urls";
-import { lastToken } from "../../utils/token";
+import { lastToken } from "../../utils/LocalStorage";
 import Swal from "sweetalert2";
 
 let headers = {

@@ -1,76 +1,76 @@
 import axios from "axios"
 import { urlPet } from "../utils/urls"
-import { clearLocalStorage } from "./clearLocalStorage"
+import { clearLocalStorage } from "../utils/ClearLocalStorage"
 
-export const getUserPets = async (userId:Number) =>{    
+export const getUserPets = async (userId: Number) => {
     const config = {
-        headers:{
+        headers: {
             "Content-type": "application/json; charset=UTF-8",
-	        "Authorization": `Bearer ${localStorage.getItem('token')}`
+            "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }
-    if(localStorage.getItem('token')){
-        try{
+    if (localStorage.getItem('token')) {
+        try {
             console.log(`${urlPet}/user-pet/${userId}`)
             const res = await axios.get(`${urlPet}/user-pet/${userId}`, config)
-            if (res.status ===200){
+            if (res.status === 200) {
                 return res.data.message
             }
-        }catch(err){
+        } catch (err) {
             clearLocalStorage()
             return []
         }
-    }else{
+    } else {
         clearLocalStorage()
     }
 }
 
-export const getAllPets = async() =>{
+export const getAllPets = async () => {
     const config = {
-        headers:{
+        headers: {
             "Content-type": "application/json; charset=UTF-8",
-	        "Authorization": `Bearer ${localStorage.getItem('token')}`
+            "Authorization": `Bearer ${localStorage.getItem('token')}`
         }
     }
 
-    if(localStorage.getItem('token')){
-        try{            
+    if (localStorage.getItem('token')) {
+        try {
             const res = await axios.get(`${urlPet}`, config)
-            if (res.status ===200){
+            if (res.status === 200) {
                 return res.data.data
             }
-        }catch(err){
-            clearLocalStorage() 
+        } catch (err) {
+            clearLocalStorage()
             return []
         }
-    }else{
+    } else {
         clearLocalStorage()
     }
 
 }
 
-export const deletePet = async(petId:Number) =>{
+export const deletePet = async (petId: Number) => {
 
 
-    if(localStorage.getItem('token')){
+    if (localStorage.getItem('token')) {
         const config = {
-            headers:{
+            headers: {
                 "Content-type": "application/json; charset=UTF-8",
                 "Authorization": `Bearer ${localStorage.getItem('token')}`
             }
         }
-        try{            
+        try {
             const res = await axios.delete(`${urlPet}/${petId}`, config)
-            if (res.status ===200){                
+            if (res.status === 200) {
                 return res.data.data
             }
-        }catch(err){
+        } catch (err) {
             console.log(err)
             // clearLocalStorage()  
             return []
         }
-    }else{     
-        
+    } else {
+
         // clearLocalStorage()           
         return []
     }

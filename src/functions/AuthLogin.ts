@@ -1,7 +1,7 @@
 import { FormEvent } from "react";
 //import { urlUser } from "../utils/urls";
-import { clearLocalStorage } from "./clearLocalStorage";
-import { addToken } from "../utils/token";
+import { clearLocalStorage } from "../utils/ClearLocalStorage";
+import { addToken } from "../utils/LocalStorage";
 import { urlUser } from "../utils/urls";
 import Swal from "sweetalert2";
 

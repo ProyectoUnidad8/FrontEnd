@@ -1,6 +1,5 @@
 import { Fragment } from "react"
 import { Link } from "react-router-dom";
-import adopt1 from "../../assets/img/adopt1.jpg"
 import { IPet } from "../../interfaces/IPet";
 
 function Mascota({
@@ -9,7 +8,7 @@ function Mascota({
     return (
         <Fragment>     
             <div className="col-md-5">
-                  <img src={adopt1} className="center-block img-rounded img-responsive" alt=""/>
+                <img src={String(urlImage)} className="center-block img-rounded img-responsive" alt=""/>
 			  </div>
             <div className="row margin-1">
                 <h3>{name}</h3>

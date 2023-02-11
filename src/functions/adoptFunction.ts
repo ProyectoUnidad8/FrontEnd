@@ -1,6 +1,6 @@
 import { FormEvent } from "react";
 import { urlAdoption, urlApplication } from "../utils/urls";
-import { lastToken } from "../utils/token"; 
+import { lastToken } from "../utils/LocalStorage";
 import Swal from "sweetalert2";
 
 let headers = {
@@ -8,22 +8,22 @@ let headers = {
 	"Authorization": `Bearer ${lastToken}`
 };
 
-export const allPetsToAdopt = async (state:any) => {		
+export const allPetsToAdopt = async (state: any) => {
 	const response = await fetch(urlAdoption, { headers: headers })
-	const data = await response.json()	
+	const data = await response.json()
 	state(data.data)
 }
 
 
-export const sendApplication = async (event:FormEvent) => {
+export const sendApplication = async (event: FormEvent) => {
 	event.preventDefault();
-	try{
+	try {
 
 		const formData = new FormData(event.target as HTMLFormElement);
 		const datos: { [key: string]: any } = {};
-		
 
-		if (!formData.get("name")|| !formData.get("dni") || !formData.get("phone") || !formData.get("description")) {
+
+		if (!formData.get("name") || !formData.get("dni") || !formData.get("phone") || !formData.get("description")) {
 			alert("Por favor, rellena todos los campos");
 			return;
 		}
@@ -34,19 +34,19 @@ export const sendApplication = async (event:FormEvent) => {
 
 		const id = Number(formData.get("petAdoptId"))
 		datos["petAdoptId"] = id
-		
-		await fetch(urlApplication,{ method: "POST",	headers: headers, body: JSON.stringify(datos) } )
+
+		await fetch(urlApplication, { method: "POST", headers: headers, body: JSON.stringify(datos) })
 		Swal.fire({
-			icon:'success',
-            title: 'Solicitud enviada',
+			icon: 'success',
+			title: 'Solicitud enviada',
 			text: 'Te enviaremos un mensaje para coordinar',
-            showConfirmButton: false,
-            timer: 1500,
-			willClose:()=>{
+			showConfirmButton: false,
+			timer: 1500,
+			willClose: () => {
 				window.location.href = "/";
 			}
-		})  		
-	} catch(error) {
+		})
+	} catch (error) {
 		console.log(error)
 	}
 }

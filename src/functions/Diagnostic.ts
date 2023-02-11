@@ -1,6 +1,6 @@
 import axios from "axios"
 import { urlPetDiagnostic } from "../utils/urls"
-import { clearLocalStorage } from "./clearLocalStorage"
+import { clearLocalStorage } from "../utils/ClearLocalStorage"
  
 
 export const getPetDiagnostic = async (petId:Number) => { 
