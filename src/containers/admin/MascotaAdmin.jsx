@@ -110,23 +110,21 @@ const MascotaAdmin = () => {
         <Layout>
             <section id="about-index" className="bg-lightcolor1" >
                 <div className="container">
-                    <div className="section-heading text-center">
-                    </div>
-                    <div className="row">
-                        <h2 className="margin-1">Registro de Mascotas</h2>
-                        <button className="btn">Crear Registro</button>
-                        <DataTable
-                            columns={columns}
-                            data={filteredItems}
-                            pagination
-                            paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
-                            subHeader
-                            subHeaderComponent={subHeaderComponentMemo}
-                            selectableRows
-                            persistTableHead
-
-
-                        />
+                    <div className="section-heading text-center" style={{ display: "grid", alignContent: "center", alignItems: "center", textAlign: "center" }}>
+                        <h1 className="margin-1" style={{ marginTop: "25px" }}>Registro de Mascotas</h1>
+                        <button className="btn" style={{ marginBottom: "10px" }} onClick={() => window.location.href = "/mascota-agregar"} >Crear Registro</button>
+                        <div className="row">
+                            <DataTable
+                                columns={columns}
+                                data={filteredItems}
+                                pagination
+                                paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
+                                subHeader
+                                subHeaderComponent={subHeaderComponentMemo}
+                                selectableRows
+                                persistTableHead
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
