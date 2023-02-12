@@ -55,7 +55,7 @@ Last change: 11th September 2017
     cursor: pointer
 }
 
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 800px) {
     .navbar{
         font-size: 10px;
         position: absolute;
@@ -97,6 +97,7 @@ Last change: 11th September 2017
     color: black;
     font-size: 18px;
     width: 40%;
+    height: auto;
     display: grid;
     /* grid-column: auto;
     justify-content: center;
