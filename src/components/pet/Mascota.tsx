@@ -6,7 +6,6 @@ function Mascota({
     id, name, age,breed, gender, url_image, description, 
 }:IPet) {
 
-    console.log(gender)
     return (
         <Fragment>     
             <div className="col-md-5">

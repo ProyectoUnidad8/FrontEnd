@@ -3,7 +3,7 @@ import Mascota from "../../components/pet/Mascota";
 import { useEffect, useState } from "react";
 
 import { getUserPets } from "../../functions/Pets";
-
+import { userId } from "../../utils/LocalStorage";
 
 const MisMascotas = () => {
 
@@ -24,7 +24,7 @@ const MisMascotas = () => {
     }, [])
 
     const showMascota = async (): Promise<any> => {
-        const datos_response = await getUserPets(Number(2))
+        const datos_response = await getUserPets(Number(userId))
         if (datos_response.length > 0) {
             setData(datos_response)
         } else {

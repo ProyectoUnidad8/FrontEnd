@@ -27,7 +27,7 @@ const CallPetsAdopt = () => {
 		{
 			name: 'Imagen',
 			cell: (row: { url_image: string }) => (
-				<img src={row.url_image} style={{ width: "100px", height: "100px", borderRadius: "10px", objectFit: "cover" }} />
+				<img src={row.url_image} style={{ width: "100px", height: "100px", borderRadius: "10px", objectFit: "cover" }} alt="" />
 			),
 		},
 		{
@@ -70,26 +70,33 @@ const CallPetsAdopt = () => {
 						onClick={() => {
 							setSelectedRow(row);
 							setIsModal2Open(true)
-							}}
-							>Ver</button>
+						}}
+					>Ver</button>
 					<AdminModalAdoptionUPDEL data={selectedRow} isOpen={isModal2Open} closeModal={() => setIsModal2Open(false)} />
 				</>
 
 			),
 		}
 	];
-	
+
 	return (
 		<>
 			<Layout>
 				<div className="pageAdopt">
 					<div className="pageAdoptChild">
-						
+
 						<section id="" className="" >
 							<div className="">
 								<div className="section-heading text-center" style={{ display: "grid", alignContent: "center", alignItems: "center", textAlign: "center" }}>
-									<h1 className="" >Mascotas</h1>
-									<button className="btn" style={{ marginBottom: "10px" }} onClick={() => setIsModalOpen(true)}>Añadir mascotas</button>
+									<h1 className="" >Mascotas para adopción</h1>
+
+									<div style={{ display: "flex", alignContent: "center", alignItems: "center", justifyContent: "center" }}>
+										<button className="btn" style={{ marginBottom: "10px", flex: "1" }} onClick={() => setIsModalOpen(true)}>Añadir mascotas</button>
+										<button className="btn" style={{ marginBottom: "10px", flex: "1" }} onClick={() => window.location.href = "/adopt-pet"}>Vista de usuario para adopción</button>
+									</div>
+
+
+
 									<DataTable
 										columns={Object(columns)}
 										data={pets}

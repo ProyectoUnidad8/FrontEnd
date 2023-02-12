@@ -12,22 +12,25 @@ export const DiagnosticoForm = () => {
             <input
               type="number"
               name="petId"
+              required={true}
               placeholder="Ingrese ID de mascota"
               className="form-control input-field" />
             <label>Síntoma</label>
             <input
               type="text"
               name="symptoms"
+              required={true}
               placeholder="Ingrese síntoma"
               className="form-control input-field" />
             <label >Medicación</label>
             <input
               type="text"
               name="medication"
+              required={true}
               placeholder="Ingrese medicación"
               className="form-control input-field" />
             <div style={{ display: "grid" }}>
-              <button type="submit" id="submit_btn" className="btn center-block">Añadir diagnóstico</button>
+              <button style={{ marginBottom: "10px" }} type="submit" id="submit_btn" className="btn center-block">Añadir diagnóstico</button>
             </div>
           </form>
         </div>
