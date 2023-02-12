@@ -7,5 +7,5 @@ export interface IPet {
     description?:String;
     numberChip?:String;
     category?:String;
-    urlImage?:String;    
+    url_image:String;    
 }

@@ -1,38 +1,40 @@
 import Layout from "../../hocs/layout"
-import React,{ useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { getAllClients } from "../../functions/Customers"
 import Swal from "sweetalert2"
-
 import FilterComponent from "../../components/filterComponent"
-
 import { deleteClient } from "../../functions/Customers"
 
+import { default as AdminModalUsers } from "../../components/modals/ModalAdminUsers"
 
-const ClienteAdmin =()=>{
+
+const ClienteAdmin = () => {
     const [data, setData] = useState([])
-
     const [filterText, setFilterText] = useState('');
-	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-	const filteredItems = data.filter(
-		item => item.email && item.email.toLowerCase().includes(filterText.toLowerCase()),
-	);
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
 
-	const subHeaderComponentMemo = React.useMemo(() => {
-		const handleClear = () => {
-			if (filterText) {
-				setResetPaginationToggle(!resetPaginationToggle);
-				setFilterText('');
-			}
-		};
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
-		return (
-			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText}  msg={"Filtrar por email"}/>
-		);
-	}, [filterText, resetPaginationToggle]);
-        
+    const filteredItems = data.filter(
+        item => item.email && item.email.toLowerCase().includes(filterText.toLowerCase()),
+    );
 
-    const btnEliminar = (e, clientId) =>{
+    const subHeaderComponentMemo = React.useMemo(() => {
+        const handleClear = () => {
+            if (filterText) {
+                setResetPaginationToggle(!resetPaginationToggle);
+                setFilterText('');
+            }
+        };
+
+        return (
+            <FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} msg={"Filtrar por email"} />
+        );
+    }, [filterText, resetPaginationToggle]);
+
+
+    const btnEliminar = (e, clientId) => {
         e.preventDefault();
         Swal.fire({
             title: 'Estas seguro?',
@@ -42,10 +44,10 @@ const ClienteAdmin =()=>{
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Sí, borrar!'
-          }).then(async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await deleteClient(clientId)
-                if (res.status === 200){
+                if (res.status === 200) {
                     console.log('.')
                 }
                 Swal.fire(
@@ -55,9 +57,9 @@ const ClienteAdmin =()=>{
                 )
                 console.log("Registro eliminado!")
             }
-          })
+        })
     }
-    
+
     const columns = [
         {
             name: 'id',
@@ -70,67 +72,61 @@ const ClienteAdmin =()=>{
         {
             name: 'Nombre',
             selector: row => row.name,
-        },        
+        },
         {
             name: 'Fecha Creacion',
             selector: row => row.createdAt,
-        },        
+        },
         {
             name: 'Fecha Actualización',
             selector: row => row.update_at,
-        },        
+        },
         {
-            name:"Acciones",
+            name: "Acciones",
             selector: row => (
                 <>
-                    <button className="btn" onClick={(e) => btnEliminar(e,row.id)}>x</button>
+                    <button className="btn" onClick={(e) => btnEliminar(e, row.id)}>x</button>
                 </>
-            
+
             ),
         }
-        
+
     ];
 
-    const crearCliente = () =>{
-
-    }
-
-    useEffect(()=>{        
-        obtenerUsuarios()         
-    },[])
+    useEffect(() => {
+        obtenerUsuarios()
+    }, [])
 
     const obtenerUsuarios = async () => {
         const datos_response = await getAllClients()
-        if (datos_response.length > 0) {            
+        if (datos_response.length > 0) {
             setData(datos_response)
-        } 
+        }
     }
-    
-    return(
+
+    return (
         <Layout>
             <section id="about-index" className="bg-lightcolor1" >
                 <div className="container">
-                    <div className="section-heading text-center">                        
-                    </div>                    
-                    <div className="row">
-                        <h2 className="margin-1">Registro de Clientes</h2>
-                        <button className="btn" onClick={e => crearCliente(e)}>Crear Registro</button>
-                        <DataTable
-                            columns={columns}
-                            data={filteredItems}
-                            pagination
-                            paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
-                            subHeader
-                            subHeaderComponent={subHeaderComponentMemo}
-                            selectableRows
-                            persistTableHead
-                                              
-                        />
+                    <div className="section-heading text-center" style={{ display: "grid", alignContent: "center", alignItems: "center", textAlign: "center" }}>
+                        <h1 className="margin-1" style={{ marginTop: "25px" }}>Registro de Clientes</h1>
+                        <button className="btn" style={{ marginBottom: "10px" }} onClick={() => setIsModalOpen(true)}>Crear Usuario</button>
+                        <div className="row">
+                            <DataTable
+                                columns={columns}
+                                data={filteredItems}
+                                pagination
+                                paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
+                                subHeader
+                                subHeaderComponent={subHeaderComponentMemo}
+                                selectableRows
+                                persistTableHead
+                            />
+                        </div>
                     </div>
                 </div>
             </section>
-            
-            
+            <AdminModalUsers isOpen={isModalOpen} closeModal={() => setIsModalOpen(false)} />
         </Layout>
     )
 

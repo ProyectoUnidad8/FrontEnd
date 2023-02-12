@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import { IPet } from "../../interfaces/IPet";
 
 function Mascota({
-    id, name, age,breed, gender, urlImage, description, 
+    id, name, age,breed, gender, url_image, description, 
 }:IPet) {
+
+    console.log(gender)
     return (
         <Fragment>     
             <div className="col-md-5">
-                <img src={String(urlImage)} className="center-block img-rounded img-responsive" alt=""/>
+                <img src={String(url_image)} className="center-block img-rounded img-responsive" alt=""/>
 			  </div>
             <div className="row margin-1">
                 <h3>{name}</h3>
