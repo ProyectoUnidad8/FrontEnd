@@ -1,10 +1,5 @@
 // Generar token
-let setTokenStorage: any[] = [];
-const storedTokens = localStorage.getItem("tokens");
-
-
 export function addToken(token: any) {
-	// setTokenStorage.push(token);
 	localStorage.setItem("token", token);
 }
 

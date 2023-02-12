@@ -1,7 +1,7 @@
 import Layout from "../../hocs/layout";
 import PetsAdopt from "../../components/adoptPet/petAdopt";
 import { useState,useEffect } from "react";
-import { allPetsToAdopt } from "../../functions/AdoptFunction";
+import { allPetsToAdopt } from "../../functions/adoptionFunction";
 
 
 const PetsToAdoption = () => {

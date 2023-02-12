@@ -67,6 +67,12 @@ export const updatePetToAdoption  = async (event:FormEvent) => {
 		for (const [key, value] of formData.entries()) {
 			datos[key] = value;
 		}
+		const urlImg = formData.get("url_image")
+		
+		if (urlImg === "") {
+			datos["url_image"] = "https://goo.su/crhQ"
+		}
+
 		const id = Number(formData.get("id"))
 		datos["id"] = Number(formData.get("id"))
 		datos["age"] = Number(formData.get("age"))

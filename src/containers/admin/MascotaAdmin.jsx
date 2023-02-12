@@ -1,41 +1,37 @@
 import Layout from "../../hocs/layout"
-import React,{ useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import DataTable from "react-data-table-component"
 import { getAllPets } from "../../functions/Pets"
 import Swal from "sweetalert2"
 import FilterComponent from "../../components/filterComponent"
 import { deletePet } from "../../functions/Pets"
-import { redirect } from "react-router-dom"
 
 
-
-
-
-const MascotaAdmin =()=>{
+const MascotaAdmin = () => {
     const [data, setData] = useState([])
 
     const [filterText, setFilterText] = useState('');
-	const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
-	const filteredItems = data.filter(
-		item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
-	);
-    
+    const [resetPaginationToggle, setResetPaginationToggle] = useState(false);
+    const filteredItems = data.filter(
+        item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
+    );
 
-	const subHeaderComponentMemo = React.useMemo(() => {
-		const handleClear = () => {
-			if (filterText) {
-				setResetPaginationToggle(!resetPaginationToggle);
-				setFilterText('');
-			}
-		};
 
-		return (
-			<FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText}  msg={"Filtrar por email"}/>
-		);
-	}, [filterText, resetPaginationToggle]);
-        
+    const subHeaderComponentMemo = React.useMemo(() => {
+        const handleClear = () => {
+            if (filterText) {
+                setResetPaginationToggle(!resetPaginationToggle);
+                setFilterText('');
+            }
+        };
 
-    const btnEliminar = (e, petId) =>{
+        return (
+            <FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} msg={"Filtrar por email"} />
+        );
+    }, [filterText, resetPaginationToggle]);
+
+
+    const btnEliminar = (e, petId) => {
         e.preventDefault()
         Swal.fire({
             title: 'Estas Seguro?',
@@ -45,22 +41,22 @@ const MascotaAdmin =()=>{
             confirmButtonColor: '#3085d6',
             cancelButtonColor: '#d33',
             confirmButtonText: 'Yes, delete it!'
-          }).then(async (result) => {
+        }).then(async (result) => {
             if (result.isConfirmed) {
                 const res = await deletePet(petId)
-                if (res.status === 200){
+                if (res.status === 200) {
                     console.log('')
                 }
                 Swal.fire(
                     'Eliminado!',
                     'La mascota ha sido elminada Correctamente.',
                     'success'
-                    ) 
+                )
                 window.location.reload(true);
             }
-          })
+        })
     }
-    
+
     const columns = [
         {
             name: 'id',
@@ -81,41 +77,41 @@ const MascotaAdmin =()=>{
         {
             name: 'Genero',
             selector: row => row.gender,
-        },        
+        },
         {
             name: 'Numero de Chip',
             selector: row => row.numberChip,
-        },        
+        },
         {
-            name:"Acciones",
+            name: "Acciones",
             selector: row => (
                 <>
-                   <button className="btn" onClick={(e) => btnEliminar(e,row.id)}>x</button>
+                    <button className="btn" onClick={(e) => btnEliminar(e, row.id)}>x</button>
                 </>
-            
+
             ),
         }
-        
-    ];
-    
 
-    useEffect(()=>{        
-        obtenerPets()                
-    },[])
+    ];
+
+
+    useEffect(() => {
+        obtenerPets()
+    }, [])
 
     const obtenerPets = async () => {
         const datos_response = await getAllPets()
-        if (datos_response.length > 0) {            
+        if (datos_response.length > 0) {
             setData(datos_response)
-        } 
+        }
     }
-    
-    return(
+
+    return (
         <Layout>
             <section id="about-index" className="bg-lightcolor1" >
                 <div className="container">
-                    <div className="section-heading text-center">                        
-                    </div>                    
+                    <div className="section-heading text-center">
+                    </div>
                     <div className="row">
                         <h2 className="margin-1">Registro de Mascotas</h2>
                         <button className="btn">Crear Registro</button>
@@ -128,14 +124,14 @@ const MascotaAdmin =()=>{
                             subHeaderComponent={subHeaderComponentMemo}
                             selectableRows
                             persistTableHead
-                        
-                            
+
+
                         />
                     </div>
                 </div>
             </section>
-            
-            
+
+
         </Layout>
     )
 

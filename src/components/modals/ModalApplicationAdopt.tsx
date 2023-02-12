@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import smileDog from "../../assets/img/smile-dog.png";
 import sadDog from "../../assets/img/sad-dog.png";
-import { sendApplication } from '../../functions/AdoptFunction';
+import { sendApplication } from '../../functions/adoptionFunction';
 
 
 interface ModalProps {
