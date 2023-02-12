@@ -108,7 +108,7 @@ const Home = () => {
                      </div>
                      <div className="col-xs-12">
                         <h5>Housing</h5>
-                        <p>Aenean lacinia bibendum nulla sed consectetur ras mattis consectetur purus sit amet fermentum sociis natoque penatibus et magnis.</p>
+                        <p>Brindamos un hogar temporal para nuestros pequeños para asegurarles alimentación y salud</p>
                      </div>
                   </div>
                   {/* <!-- /col-md-3 --> */}
@@ -120,7 +120,7 @@ const Home = () => {
                      </div>
                      <div className="col-xs-12">
                         <h5>Adopción</h5>
-                        <p>Aenean lacinia bibendum nulla sed consectetur ras mattis consectetur purus sit amet fermentum sociis natoque penatibus et magnis.</p>
+                        <p>Durante su estadía con nosotros recibimos solicitudes de familias interesadas en brindar calidad de vida a nuestros pequeños.</p>
                      </div>
                   </div>
                   {/* <!-- /col-md-3 --> */}
