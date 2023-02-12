@@ -6,7 +6,10 @@ export function addToken(token: any) {
 
 // Enviar Token
 export const lastToken = localStorage.getItem("token");
+// Enviar User
 export const userId = localStorage.getItem("user_id");
+// Enviar Rol
+export const userRole = localStorage.getItem("role");
 
 
 

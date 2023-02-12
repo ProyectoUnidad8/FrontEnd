@@ -46,6 +46,7 @@ function Navbar() {
       } else if (role === 'USER') {
          return (
             <Fragment>
+               <li><a href="/profile">Perfíl</a></li>
                <li><a href="/mis_mascotas">Mis Mascotas</a></li>
                <li><a href="/" onClick={logOut}>Logout</a></li>
             </Fragment>
