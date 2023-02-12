@@ -108,9 +108,12 @@ const ClienteAdmin = () => {
         <Layout>
             <section id="about-index" className="bg-lightcolor1" >
                 <div className="container">
-                    <div className="section-heading text-center" style={{ display: "grid", alignContent: "center", alignItems: "center", textAlign: "center" }}>
+                    <div className="section-heading text-center">
                         <h1 className="margin-1" style={{ marginTop: "25px" }}>Registro de Clientes</h1>
-                        <button className="btn" style={{ marginBottom: "10px" }} onClick={() => setIsModalOpen(true)}>Crear Usuario</button>
+                        <div style={{ display: "flex", alignContent: "center", alignItems: "center", justifyContent: "center" }}>
+                            <button className="btn" style={{ marginBottom: "10px", flex: "1" }} onClick={() => setIsModalOpen(true)}>Crear Usuario</button>
+                            <button className="btn" style={{ marginBottom: "10px", flex: "1" }} onClick={() => window.location.href = "/profile"}>Mi perfil</button>
+                        </div>
                         <div className="row">
                             <DataTable
                                 columns={columns}
