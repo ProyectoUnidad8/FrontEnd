@@ -9,6 +9,7 @@ import Donate from './containers/pages/Donate';
 import Diagnosticos from './containers/pages/Diagnosticos';
 import PetsToAdoption from './containers/pages/PageAdoptPets';
 import { PetForm } from './components/adminPet/adminPet';
+import { DiagnosticoForm } from './components/adminDiagnostic/adminDiagnostic';
 
 
 //Admin Componentes
@@ -26,7 +27,8 @@ function App() {
           <Route path="*" element={<Error />} />
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/mascota-agregar" element={<PetForm />} />        
+          <Route path="/agregar-mascota" element={<PetForm />} />
+          <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
           
           <Route path="/mis_mascotas" element={<MisMascotas/>} />
           <Route path="/donate" element={<Donate/>} />

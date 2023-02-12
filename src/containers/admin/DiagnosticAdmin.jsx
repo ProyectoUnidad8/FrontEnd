@@ -109,8 +109,8 @@ const DiagnosticAdmin = () => {
             <section id="about-index" className="bg-lightcolor1" >
                 <div className="container">
                     <div className="section-heading text-center" style={{ display: "grid", alignContent: "center", alignItems: "center", textAlign: "center" }}>
-                        <h1 className="margin-1" style={{ marginTop: "25px" }}>Registro de Mascotas</h1>
-                        <button className="btn" style={{ marginBottom: "10px" }}>Crear Registro</button>
+                        <h1 className="margin-1" style={{ marginTop: "25px" }}>Registro de Diagnóstico</h1>
+                        <button className="btn" style={{ marginBottom: "10px" }} onClick={() => window.location.href="/agregar-diagnostico"}>Crear Diagnóstico</button>
                         <div className="row">
                             <DataTable
                                 columns={columns}
