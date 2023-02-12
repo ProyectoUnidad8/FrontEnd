@@ -1,12 +1,13 @@
 import axios from "axios"
 import { urlPet } from "../utils/urls"
 import { clearLocalStorage } from "../utils/ClearLocalStorage"
+import { lastToken } from "../utils/LocalStorage"
 
 export const getUserPets = async (userId: Number) => {
     const config = {
         headers: {
             "Content-type": "application/json; charset=UTF-8",
-            "Authorization": `Bearer ${localStorage.getItem('token')}`
+            "Authorization": `Bearer ${lastToken}`
         }
     }
     if (localStorage.getItem('token')) {

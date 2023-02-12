@@ -2,6 +2,7 @@ import axios from "axios"
 import { Navigate } from "react-router-dom"
 import Swal from "sweetalert2"
 import { urlUser } from "./urls"
+import { removeTokens } from "./LocalStorage"
 
 export const Login = async (data: any) => {
     const Toast = Swal.mixin({
@@ -73,10 +74,8 @@ export const checkAuthenticated = async () => {
 
 export const logOut = () => {
     if (localStorage.getItem('token')) {
-        console.log('Se ha borrado el token')
-        localStorage.removeItem('token')
+        removeTokens()
     }
-    console.log('siuuu')
     return (
         <Navigate to="/" replace={true}></Navigate>
     )

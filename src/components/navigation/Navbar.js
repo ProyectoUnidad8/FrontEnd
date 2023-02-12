@@ -36,7 +36,7 @@ function Navbar() {
 
                            <li><a href="/admin/aplications">Solicitudes</a></li>
                            <li><a href="/admin/adoptions" >Adopción</a></li>
-                           <li><a href="/admin/donaciones" >Donaciones</a></li>
+                           <li><a href="/profile" >Perfíl</a></li>
                            <li><a href="/" onClick={logOut}>Logout</a></li>
                         </ul>
                      </div>
@@ -46,8 +46,8 @@ function Navbar() {
       } else if (role === 'USER') {
          return (
             <Fragment>
-               <li><a href="/profile">Perfíl</a></li>
                <li><a href="/mis_mascotas">Mis Mascotas</a></li>
+               <li><a href="/profile">Perfíl</a></li>
                <li><a href="/" onClick={logOut}>Logout</a></li>
             </Fragment>
          )

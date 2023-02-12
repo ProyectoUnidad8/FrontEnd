@@ -16,6 +16,8 @@ export const userRole = localStorage.getItem("role");
 // Eliminar Tokens
 export function removeTokens() {
 	localStorage.removeItem("token");
+	localStorage.removeItem("user_id");
+	localStorage.removeItem("role");
 }
 
 

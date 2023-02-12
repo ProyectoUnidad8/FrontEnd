@@ -112,9 +112,32 @@ Last change: 11th September 2017
 }
 
 /*===========================
-        Navbar Admin
+       End Navbar Admin
 ============================ */
 
+/*============================
+         Config Modal        
+============================*/
+.modales {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+    width: 100% 
+}
+
+.modales p{
+    width: 48%;
+    margin-bottom: -5px;
+}
+
+.modales .modalselect{
+    width: 48%
+}
+/*============================
+         EndConfigModal        
+============================*/
 
 
 /*============================         
@@ -136,12 +159,9 @@ Last change: 11th September 2017
 .modal-content {
     color: black;
     font-size: 18px;
-    width: 40%;
+
     height: auto;
     display: grid;
-    /* grid-column: auto;
-    justify-content: center;
-    align-items: center; */
 
     border-radius: 40px;
     position: fixed;
@@ -174,6 +194,9 @@ Last change: 11th September 2017
     }
 }
 
+
+
+
 /*============================
          EndModal        
 ============================*/
@@ -198,7 +221,6 @@ Last change: 11th September 2017
 .modal2-content {
     color: black;
     font-size: 18px;
-    width: 40%;
     display: grid;
     /* grid-column: auto;
     justify-content: center;

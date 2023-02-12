@@ -12,30 +12,35 @@ export const PetForm = () => {
             <input
               type="text"
               name="name"
+              required={true}
               placeholder="Ingrese nombre"
               className="form-control input-field" />
             <label >Raza</label>
             <input
               type="text"
               name="breed"
+              required={true}
               placeholder="Ingrese raza"
               className="form-control input-field" />
             <label >Género</label>
             <input
               type="text"
               name="gender"
+              required={true}
               placeholder="Ingrese genero"
               className="form-control input-field" />
             <label >Descripción</label>
             <input
               type="text"
               name="description"
+              required={true}
               placeholder="Ingrese descripción"
               className="form-control input-field" />
             <label >Número de chip</label>
             <input
               type="text"
               name="numberChip"
+              required={true}
               placeholder="Ingrese el número de chip"
               className="form-control input-field" />
             <label >Categoría</label>
@@ -57,10 +62,11 @@ export const PetForm = () => {
             <input
               type="number"
               name="ownerId"
+              required={true}
               placeholder="Ingrese ID de dueño"
               className="form-control input-field" />
             <div style={{ display: "grid" }}>
-              <button type="submit" id="submit_btn" className="btn center-block">Añadir mascota</button>
+              <button style={{ marginBottom: "10px" }} type="submit" id="submit_btn" className="btn center-block">Añadir mascota</button>
             </div>
           </form>
         </div>

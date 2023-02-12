@@ -25,35 +25,42 @@ const AdminModalAdoption: FC<ModalProps> = ({ isOpen, closeModal }) => {
 						required={true}
 						className="form-control input-field"
 						placeholder='Ingresa nombre de la mascota' />
-					Raza:
-					<input
-						name="breed"
-						type="text"
-						required={true}
-						className="form-control input-field"
-						placeholder='Ingresa raza de la mascota' />
-					Edad:
-					<input
-						name="age"
-						type="number"
-						required={false}
-						className="form-control input-field"
-						placeholder='Ingresa edad de la mascota' />
-					Género
-					<input
-						name="gender"
-						type="text"
-						required={true}
-						className="form-control input-field"
-						placeholder='Ingresa género de la mascota' />
 
-					Categoría
-					<input
-						name="category"
-						type="text"
-						required={true}
-						className="form-control input-field"
-						placeholder='Perro/Gato/Tortuga' />
+					<div className='modales'>
+						<p>Raza</p>
+						<p>Edad</p>
+						<input
+							name="breed"
+							type="text"
+							required={true}
+							className="form-control input-field modalselect"
+							placeholder='Ingresa raza de la mascota' />
+						<input
+							name="age"
+							type="number"
+							required={false}
+							className="form-control input-field modalselect"
+							placeholder='Ingresa edad de la mascota' />
+					</div>
+
+					<div className='modales'>
+						<p>Género</p>
+						<p>Categoría</p>
+						<select name="gender" className="form-control input-field modalselect" >
+							<option value="Macho">Macho</option>
+							<option value="Hembra">Hembra</option>
+						</select>
+						<select name="category" className="form-control input-field modalselect">
+							<option value="Perro">Perro</option>
+							<option value="Gato">Gato</option>
+							<option value="Tortuga">Tortuga</option>
+							<option value="Conejo">Conejo</option>
+							<option value="Hamster">Hamster</option>
+							<option value="Otros">Otros</option>
+						</select>
+					</div>
+
+
 
 					Descripción
 					<input
@@ -71,10 +78,9 @@ const AdminModalAdoption: FC<ModalProps> = ({ isOpen, closeModal }) => {
 						className="form-control input-field"
 						placeholder='Ingresa el Url de la imagen de referencia' />
 
-
-					<div style={{ display: "grid" }}>
-						<button type='submit' className="btn">Agregar</button>
-						<button className="btn" onClick={closeModal}>Cerrar</button>
+					<div style={{ display: "flex", alignContent: "center", alignItems: "center", justifyContent: "center" }}>
+						<button type='submit' style={{ marginBottom: "10px", flex: "1" }} className="btn">Agregar</button>
+						<button className="btn" style={{ marginBottom: "10px", flex: "1" }} onClick={closeModal}>Cerrar</button>
 					</div>
 				</form>
 			</div>

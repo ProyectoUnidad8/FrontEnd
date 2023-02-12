@@ -3,8 +3,6 @@ import Layout from "../../hocs/layout"
 import { useParams } from "react-router-dom"
 import PetDiagnostic from "../../components/pet/Diagnostic"
 import { getPetDiagnostic } from "../../functions/Diagnostic"
-import { urlPetDiagnostic } from "../../utils/urls"
-
 
 const Diagnosticos = () => {
     const params = useParams()
@@ -17,10 +15,11 @@ const Diagnosticos = () => {
         medication: "Pastillas cada 4 horas",
         createdAt:"18/06/2021"
     }])
-
+    
+    
     useEffect(() => {
         showDiagnostic()
-    }, [])
+    })
 
     const showDiagnostic = async (): Promise<any> => {
         const datos_response = await getPetDiagnostic(Number(petId))
@@ -28,6 +27,7 @@ const Diagnosticos = () => {
             setData(datos_response)
         }
     }
+
     
     return (
         <Layout>
