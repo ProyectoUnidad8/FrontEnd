@@ -8,6 +8,8 @@ import Error from './containers/errors/Error404';
 import Donate from './containers/pages/Donate';
 import Diagnosticos from './containers/pages/Diagnosticos';
 import PetsToAdoption from './containers/pages/PageAdoptPets';
+import { PetForm } from './components/adminPet/adminPet';
+import { DiagnosticoForm } from './components/adminDiagnostic/adminDiagnostic';
 
 
 //Admin Componentes
@@ -80,6 +82,8 @@ function App() {
           <Route path="/donate" element={<Donate />} />
           <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
           <Route path="/adopt-pet" element={<PetsToAdoption />} />
+          <Route path="/agregar-mascota" element={<PetForm />} />
+          <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
 
           {/* Admin Routes */}
           <Route path="admin"  >
