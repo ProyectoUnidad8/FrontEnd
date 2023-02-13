@@ -57,12 +57,12 @@ function App() {
     return (
       <Router>
         <Routes>
-          <Route path="*" element={<Error />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<ProfileUserPage />} />
           <Route path="/mis_mascotas" element={<MisMascotas />} />
           <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
           <Route path="/adopt-pet" element={<PetsToAdoption />} />
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     );
@@ -71,12 +71,12 @@ function App() {
     return (
       <Router>
         <Routes>
-          <Route path="*" element={<Error />} />
           <Route path="/" element={<Home />} />
           <Route path="/profile" element={<ProfileUserPage />} />
           <Route path="/adopt-pet" element={<PetsToAdoption />} />
           <Route path="/agregar-mascota" element={<PetForm />} />
           <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
+
 
           {/* Admin Routes */}
           <Route path="admin"  >
@@ -87,7 +87,7 @@ function App() {
             <Route path="adoptions" element={<CallPetsAdopt />} />
           </Route>
 
-
+          <Route path="*" element={<Error />} />
         </Routes>
       </Router>
     );
