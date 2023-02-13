@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
+// import { userRole } from './utils/LocalStorage';
 //Contenedores
 import Home from './containers/Home';
 import Login from './containers/auth/Login';
@@ -20,91 +20,92 @@ import AllApplications from './containers/admin/AdminApplications';
 
 import ProfileUserPage from './containers/pages/ProfileUser';
 
-// function App() {
-//   return (
-//     <Router>
-//       <Routes>
-//           <Route path="*" element={<Error />} />
-//           <Route path="/" element={<Home />} />
-//           <Route path="/login" element={<Login />} />        
-//           <Route path="/profile" element={<ProfileUserPage />} />        
-
-//           <Route path="/mis_mascotas" element={<MisMascotas/>} />
-//           <Route path="/donate" element={<Donate/>} />
-//           <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
-//           <Route path="/adopt-pet" element={ <PetsToAdoption />} />
-//           <Route path="/mascota-admin" element={<MascotaAdmin/>} />
-
-
-//           {/* Admin Routes */}
-//           <Route path="admin"  >
-
-//               <Route path="mascota" element={<MascotaAdmin/>} />
-//               <Route path="usuarios" element={<ClienteAdmin/>} />
-//               <Route path="diagnosticos" element={<DiagnosticAdmin/>} />
-//               <Route path="aplications" element={<AllApplications/>} />
-//               <Route path="adoptions" element={<CallPetsAdopt/>} />
-//           </Route>
-//       </Routes>
-//     </Router>
-//   );
-// }
-
-import { userRole } from './utils/LocalStorage';
 function App() {
-
-  if (userRole === "USER") {
-    return (
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<ProfileUserPage />} />
-          <Route path="/mis_mascotas" element={<MisMascotas />} />
-          <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
-          <Route path="/adopt-pet" element={<PetsToAdoption />} />
+  return (
+    <Router>
+      <Routes>
           <Route path="*" element={<Error />} />
-        </Routes>
-      </Router>
-    );
-  }
-  else if (userRole === "ADMIN") {
-    return (
-      <Router>
-        <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/profile" element={<ProfileUserPage />} />
-          <Route path="/adopt-pet" element={<PetsToAdoption />} />
-          <Route path="/agregar-mascota" element={<PetForm />} />
-          <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
+          <Route path="/login" element={<Login />} />        
+          <Route path="/profile" element={<ProfileUserPage />} />        
+
+          <Route path="/mis_mascotas" element={<MisMascotas/>} />
+          <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
+          <Route path="/adopt-pet" element={ <PetsToAdoption />} />
+          <Route path="/mascota-admin" element={<MascotaAdmin/>} />
 
 
           {/* Admin Routes */}
           <Route path="admin"  >
-            <Route path="mascota" element={<MascotaAdmin />} />
-            <Route path="usuarios" element={<ClienteAdmin />} />
-            <Route path="diagnosticos" element={<DiagnosticAdmin />} />
-            <Route path="aplications" element={<AllApplications />} />
-            <Route path="adoptions" element={<CallPetsAdopt />} />
+
+              <Route path="mascota" element={<MascotaAdmin/>} />
+              <Route path="usuarios" element={<ClienteAdmin/>} />
+              <Route path="diagnosticos" element={<DiagnosticAdmin/>} />
+              <Route path="aplications" element={<AllApplications/>} />
+              <Route path="adoptions" element={<CallPetsAdopt/>} />
+              <Route path="/agregar-mascota" element={<PetForm />} />
+              <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
           </Route>
-
-          <Route path="*" element={<Error />} />
-        </Routes>
-      </Router>
-    );
-  }
-  else {
-    return (
-      <Router>
-        <Routes>
-          <Route path="*" element={<Error />} />
-          <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/adopt-pet" element={<PetsToAdoption />} />
-        </Routes>
-      </Router>
-    );
-  }
-
+      </Routes>
+    </Router>
+  );
 }
-
 export default App;
+
+
+// function App() {
+
+//   if (userRole === "USER") {
+//     return (
+//       <Router>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/profile" element={<ProfileUserPage />} />
+//           <Route path="/mis_mascotas" element={<MisMascotas />} />
+//           <Route path="/diagnosticos/:petId" element={<Diagnosticos />} />
+//           <Route path="/adopt-pet" element={<PetsToAdoption />} />
+//           <Route path="*" element={<Error />} />
+//         </Routes>
+//       </Router>
+//     );
+//   }
+//   else if (userRole === "ADMIN") {
+//     return (
+//       <Router>
+//         <Routes>
+//           <Route path="/" element={<Home />} />
+//           <Route path="/profile" element={<ProfileUserPage />} />
+//           <Route path="/adopt-pet" element={<PetsToAdoption />} />
+//           <Route path="/agregar-mascota" element={<PetForm />} />
+//           <Route path="/agregar-diagnostico" element={<DiagnosticoForm />} />
+
+
+//           {/* Admin Routes */}
+//           <Route path="admin"  >
+//             <Route path="mascota" element={<MascotaAdmin />} />
+//             <Route path="usuarios" element={<ClienteAdmin />} />
+//             <Route path="diagnosticos" element={<DiagnosticAdmin />} />
+//             <Route path="aplications" element={<AllApplications />} />
+//             <Route path="adoptions" element={<CallPetsAdopt />} />
+//           </Route>
+
+//           <Route path="*" element={<Error />} />
+//         </Routes>
+//       </Router>
+//     );
+//   }
+//   else {
+//     return (
+//       <Router>
+//         <Routes>
+//           <Route path="*" element={<Error />} />
+//           <Route path="/" element={<Home />} />
+//           <Route path="/login" element={<Login />} />
+//           <Route path="/adopt-pet" element={<PetsToAdoption />} />
+//         </Routes>
+//       </Router>
+//     );
+//   }
+
+// }
+// export default App;
